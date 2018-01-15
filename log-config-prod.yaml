@@ -1,0 +1,8 @@
+rotation:
+    logLimit: 5242880 # 5MB
+    keepFiles: 20
+loggerTree:
+  severity: Debug+
+  files:
+    - pub/node.pub
+    - node

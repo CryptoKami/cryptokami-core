@@ -1,0 +1,156 @@
+name:                cryptokami-sl-update
+version:             1.0.3
+synopsis:            Cryptokami SL - update
+description:         Cryptokami SL - update
+license:             MIT
+license-file:        LICENSE
+author:              Serokell
+maintainer:          hi@serokell.io
+copyright:           2016 IOHK
+category:            Currency
+build-type:          Simple
+cabal-version:       >=1.10
+
+library
+  exposed-modules:
+                       Pos.Update
+
+                       -- Arbitrary
+                       Pos.Arbitrary.Update
+                       -- Binary
+                       Pos.Binary.Update
+                       Pos.Binary.Update.Relay
+                       Pos.Binary.Update.Poll
+                       -- Aeson
+                       Pos.Aeson.Update
+
+                       Pos.Update.BlockVersion
+
+                       -- Misc
+                       Pos.Update.Configuration
+                       Pos.Update.Constants
+                       Pos.Update.DB
+                       Pos.Update.DB.Misc
+                       Pos.Update.Download
+                       Pos.Update.Lrc
+                       Pos.Update.Mode
+                       Pos.Update.RichmenComponent
+                       Pos.Update.Worker
+
+                       -- Logic
+                       Pos.Update.Logic
+                       Pos.Update.Logic.Global
+                       Pos.Update.Logic.Local
+
+                       -- Poll
+                       Pos.Update.Poll
+                       Pos.Update.Poll.Class
+                       Pos.Update.Poll.Modifier
+                       Pos.Update.Poll.PollState
+                       Pos.Update.Poll.Trans
+                       Pos.Update.Poll.Types
+                       Pos.Update.Poll.RollTrans
+                       Pos.Update.Poll.Failure
+                       Pos.Update.Poll.Pure
+                       Pos.Update.Poll.DBPoll
+                       -- Poll.Logic
+                       Pos.Update.Poll.Logic
+                       Pos.Update.Poll.Logic.Apply
+                       Pos.Update.Poll.Logic.Base
+                       Pos.Update.Poll.Logic.Version
+                       Pos.Update.Poll.Logic.Normalize
+                       Pos.Update.Poll.Logic.Rollback
+                       Pos.Update.Poll.Logic.Softfork
+
+                       -- MemState
+                       Pos.Update.MemState
+                       Pos.Update.MemState.Functions
+                       Pos.Update.MemState.Types
+
+                       -- Network
+                       Pos.Update.Network
+                       Pos.Update.Network.Listeners
+
+                       -- Context-like things
+                       Pos.Update.Context
+                       Pos.Update.Params
+
+  other-modules:
+                       Pos.Arbitrary.Update.Core
+                       Pos.Arbitrary.Update.MemState
+                       Pos.Arbitrary.Update.Network
+                       Pos.Arbitrary.Update.Poll
+
+  build-depends:       QuickCheck
+                     , aeson
+                     , base
+                     , bytestring
+                     , cryptokami-sl-binary
+                     , cryptokami-sl-core
+                     , cryptokami-sl-crypto
+                     , cryptokami-sl-db
+                     , cryptokami-sl-infra
+                     , cryptokami-sl-lrc
+                     , cryptokami-sl-networking
+                     , cryptokami-sl-util
+                     , conduit
+                     , containers
+                     , data-default
+                     , directory
+                     , ether >= 0.5
+                     , exceptions
+                     , formatting
+                     , generic-arbitrary
+                     , hashable
+                     , http-client
+                     , http-client-tls
+                     , http-conduit
+                     , lens
+                     , log-warper
+                     , memory
+                     , mtl
+                     , reflection
+                     , resourcet
+                     , rocksdb-haskell >= 1.0.0
+                     , safe-exceptions
+                     , serokell-util
+                     , stm
+                     , tagged
+                     , text
+                     , text-format
+                     , time-units
+                     , transformers
+                     , universum
+                     , unordered-containers
+
+  default-language:    Haskell2010
+
+  default-extensions:  DeriveDataTypeable
+                       DeriveGeneric
+                       GeneralizedNewtypeDeriving
+                       StandaloneDeriving
+                       FlexibleContexts
+                       FlexibleInstances
+                       MultiParamTypeClasses
+                       FunctionalDependencies
+                       DefaultSignatures
+                       NoImplicitPrelude
+                       OverloadedStrings
+                       RecordWildCards
+                       TypeApplications
+                       TupleSections
+                       ViewPatterns
+                       LambdaCase
+                       MultiWayIf
+                       ConstraintKinds
+                       UndecidableInstances
+                       BangPatterns
+                       TemplateHaskell
+                       ScopedTypeVariables
+
+  ghc-options:         -Wall
+                       -fno-warn-orphans
+                       -O2
+
+  build-tools: cpphs >= 1.19
+  ghc-options: -pgmP cpphs -optP --cpp
