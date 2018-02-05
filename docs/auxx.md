@@ -1,6 +1,6 @@
-# The Cryptokami SL Auxx Tool and Language
+# The CryptoKami Core Auxx Tool and Language
 
-Cryptokami SL is a distributed system, and one of the challenges when developing
+CryptoKami Core is a distributed system, and one of the challenges when developing
 or testing it is to interact with it. There can be multiple nodes running
 locally, and we want to inspect and analyze their state, send commands to them
 or on their behalf, etc. One of the tools we developed for this purpose is
@@ -26,7 +26,7 @@ previous ad-hoc operations with a principled execution model.
 ## Why a Language?
 
 Let us start with motivation: why would we want to invent *yet another*
-language? After all, we are happy using Haskell for Cryptokami SL development,
+language? After all, we are happy using Haskell for CryptoKami Core development,
 why not use GHCi for development?
 
 The answer is twofold. First, the auxx tool is designed to be used *with*
@@ -95,7 +95,7 @@ The binary is called `cryptokami-auxx` and we can use it to start a REPL:
 
 ```
 $ stack exec -- cryptokami-auxx repl
-Welcome to Cryptokami SL Auxx REPL
+Welcome to CryptoKami Core Auxx REPL
 Mode: light
 ... the auxx plugin is ready
 auxx>  
@@ -213,8 +213,8 @@ mode, let's see how to run auxx with configuration:
 
 ```
 $ scripts/launch/auxx.sh repl
-/home/gumo/Projects/cryptokami-sl/.stack-work/install/x86_64-linux/lts-9.1/8.0.2/bin/cryptokami-auxx  --peer 127.0.0.1:3000 --peer 127.0.0.1:3001 --peer 127.0.0.1:3002 --peer 127.0.0.1:3003   --json-log=/home/gumo/Projects/cryptokami-sl/scripts/../logs/2017-11-25_171923/node.json  --logs-prefix /home/gumo/Projects/cryptokami-sl/scripts/../logs/2017-11-25_171923 --log-config /home/gumo/Projects/cryptokami-sl/scripts/../logs/2017-11-25_171923/conf/auxx.log.yaml                   --system-start 100500 repl
-Welcome to Cryptokami SL Auxx REPL
+/home/gumo/Projects/cryptokami-core/.stack-work/install/x86_64-linux/lts-9.1/8.0.2/bin/cryptokami-auxx  --peer 127.0.0.1:3000 --peer 127.0.0.1:3001 --peer 127.0.0.1:3002 --peer 127.0.0.1:3003   --json-log=/home/gumo/Projects/cryptokami-core/scripts/../logs/2017-11-25_171923/node.json  --logs-prefix /home/gumo/Projects/cryptokami-core/scripts/../logs/2017-11-25_171923 --log-config /home/gumo/Projects/cryptokami-core/scripts/../logs/2017-11-25_171923/conf/auxx.log.yaml                   --system-start 100500 repl
+Welcome to CryptoKami Core Auxx REPL
 Mode: with-config
 ... the auxx plugin is ready
 auxx> 
@@ -229,8 +229,8 @@ them will use up-to-date context. To keep up with the blockchain, specify the mo
 
 ```
 $ scripts/launch/auxx.sh repl --mode with-node
-/home/gumo/Projects/cryptokami-sl/.stack-work/install/x86_64-linux/lts-9.1/8.0.2/bin/cryptokami-auxx  --peer 127.0.0.1:3000 --peer 127.0.0.1:3001 --peer 127.0.0.1:3002 --peer 127.0.0.1:3003   --json-log=/home/gumo/Projects/cryptokami-sl/scripts/../logs/2017-11-25_172834/node.json  --logs-prefix /home/gumo/Projects/cryptokami-sl/scripts/../logs/2017-11-25_172834 --log-config /home/gumo/Projects/cryptokami-sl/scripts/../logs/2017-11-25_172834/conf/auxx.log.yaml                   --system-start 100500 repl --mode with-node
-Welcome to Cryptokami SL Auxx REPL
+/home/gumo/Projects/cryptokami-core/.stack-work/install/x86_64-linux/lts-9.1/8.0.2/bin/cryptokami-auxx  --peer 127.0.0.1:3000 --peer 127.0.0.1:3001 --peer 127.0.0.1:3002 --peer 127.0.0.1:3003   --json-log=/home/gumo/Projects/cryptokami-core/scripts/../logs/2017-11-25_172834/node.json  --logs-prefix /home/gumo/Projects/cryptokami-core/scripts/../logs/2017-11-25_172834 --log-config /home/gumo/Projects/cryptokami-core/scripts/../logs/2017-11-25_172834/conf/auxx.log.yaml                   --system-start 100500 repl --mode with-node
+Welcome to CryptoKami Core Auxx REPL
 ... the auxx plugin is ready
 auxx> 
 ```

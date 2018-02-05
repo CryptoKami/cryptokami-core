@@ -1,6 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 
--- Taken and slightly modified from https://github.com/input-output-hk/postvend-app/blob/master/src/Mnemonics.hs
+-- Taken and slightly modified from https://github.com/CryptoKami/postvend-app/blob/master/src/Mnemonics.hs
 
 module Pos.Util.Mnemonics
        (

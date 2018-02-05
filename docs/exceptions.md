@@ -1,4 +1,4 @@
-# Guidelines for Exception Handling in Cryptokami SL
+# Guidelines for Exception Handling in CryptoKami Core
 
 To determine the preferred way to handle exceptions in a piece of code, first
 answer these questions:
@@ -246,14 +246,6 @@ with simple `Either`, we should do this replacement. For instance,
 -> m AddrStakeDistribution` becomes `mkMultiKeyDistr :: Map
 StakeholderId CoinPortion -> Either Text AddrStakeDistribution`
 
-We should get rid of `MonadFail` usages everywhere except places where
-it's required by external API. For instance, `mkTx :: MonadFail m =>
-NonEmpty TxIn -> NonEmpty TxOut -> TxAttributes -> m Tx` should be
-changed to `mkTx :: NonEmpty TxIn -> NonEmpty TxOut -> TxAttributes ->
-Either Text Tx`. We can use `eitherToFail` helper function if we want
-to use this function inside a monad from external library which uses
-`MonadFail` to fail.
-
 We should locate all usages of `forkIO` and replace with appropriate functions
 from `async`.
 
@@ -271,10 +263,10 @@ comments, and add comments.
 
 This list is not exhaustive:
 
-* `TxpGlobalVerifyMode`: https://github.com/input-output-hk/cryptokami-sl/blob/8507d03ba928e07daea57f9a52f6dc03a9d65779/txp/Pos/Txp/Settings/Global.hs#L37
+* `TxpGlobalVerifyMode`: https://github.com/CryptoKami/cryptokami-core/blob/8507d03ba928e07daea57f9a52f6dc03a9d65779/txp/Pos/Txp/Settings/Global.hs#L37
   -- `MonadError` in potentially impure code
 * `MonadRecoveryInfo`:
-  https://github.com/input-output-hk/cryptokami-sl/blob/d598003ccde5d9848a11c54eec7542b299eb7c44/lib/src/Pos/Recovery/Instance.hs#L30
+  https://github.com/CryptoKami/cryptokami-core/blob/d598003ccde5d9848a11c54eec7542b299eb7c44/lib/src/Pos/Recovery/Instance.hs#L30
   -- `ExceptT` in impure code
 * TBD
 

@@ -2,14 +2,14 @@
 
 ## Build frontend
 
-You should build frontend part of Explorer to work with web UI via browser. Assumed that you already cloned [`cryptokami-sl`](https://github.com/input-output-hk/cryptokami-sl) repository.
+You should build frontend part of Explorer to work with web UI via browser. Assumed that you already cloned [`cryptokami-sl`](https://github.com/CryptoKami/cryptokami-sl) repository.
 
 Please make sure you have installed [`yarn`](https://yarnpkg.com/lang/en/docs/install/) program (at least `0.27.5` version).
 
 Then do:
 
 ```
-$ cd cryptokami-sl/explorer/frontend
+$ cd cryptokami-core/explorer/frontend
 $ ./scripts/build-explorer-frontend.sh
 ```
 

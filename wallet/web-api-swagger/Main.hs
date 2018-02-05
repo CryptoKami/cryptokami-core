@@ -25,7 +25,7 @@ showProgramInfoIfRequired generatedJSON = void $ execParser programInfo
   where
     programInfo = Opt.info (helper <*> versionOption) $
         fullDesc <> progDesc "Generate Swagger specification for Wallet web API."
-                 <> header   "Cryptokami SL Wallet web API docs generator."
+                 <> header   "CryptoKami Core Wallet web API docs generator."
                  <> footer   ("This program runs during 'cryptokami-sl' building on Travis CI. " <>
                               "Generated file '" <> generatedJSON <> "' will be used to produce HTML documentation. " <>
                               "This documentation will be published at cryptokamidocs.com using 'update_wallet_web_api_docs.sh'.")

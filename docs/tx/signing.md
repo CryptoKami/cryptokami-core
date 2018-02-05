@@ -1,10 +1,10 @@
 # Transaction Signing
 
-This article describes how we sign transactions in Cryptokami SL.
+This article describes how we sign transactions in CryptoKami Core.
 
 ## Input and Witness
 
-Transaction in Cryptokami SL includes 3 parts:
+Transaction in CryptoKami Core includes 3 parts:
 
 1. list of inputs,
 2. list of outputs,

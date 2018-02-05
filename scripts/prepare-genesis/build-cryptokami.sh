@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -ex
 
-REPO_URL="https://github.com/input-output-hk/cryptokami-sl.git"
+REPO_URL="https://github.com/CryptoKami/cryptokami-sl.git"
 REPO_PATH="$HOME/cryptokami-sl"
 BRANCH="cryptokami-sl-1.0"
 

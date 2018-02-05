@@ -1,6 +1,6 @@
 name:                cryptokami-sl-binary
 version:             1.0.3
-synopsis:            Cryptokami SL - binary serialization
+synopsis:            CryptoKami Core - binary serialization
 description:         This package defines a type class for binary serialization,
                      helpers and instances.
 license:             MIT
@@ -18,7 +18,6 @@ library
 
   other-modules:
                        Pos.Binary.Class.Core
-                       Pos.Binary.Class.Numbers
                        Pos.Binary.Class.Primitive
                        Pos.Binary.Class.TH
 
@@ -79,6 +78,7 @@ library
                        BangPatterns
                        TemplateHaskell
                        ScopedTypeVariables
+                       MonadFailDesugaring
 
   ghc-options:         -Wall
                        -fno-warn-orphans

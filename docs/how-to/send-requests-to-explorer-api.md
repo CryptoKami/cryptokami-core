@@ -2,11 +2,11 @@
 
 ## Preparing
 
-Clone [`cryptokami-sl`](https://github.com/input-output-hk/cryptokami-sl) repository:
+Clone [`cryptokami-sl`](https://github.com/CryptoKami/cryptokami-sl) repository:
 
 ```
-$ git clone git@github.com:input-output-hk/cryptokami-sl.git
-$ cd cryptokami-sl/explorer
+$ git clone git@github.com:CryptoKami/cryptokami-sl.git
+$ cd cryptokami-core/explorer
 ```
 
 Build explorer:
@@ -29,7 +29,7 @@ Then run explorer:
 $ ./start-dev.sh
 ``` 
 
-For more details about installation and launching please see [Explorer README](https://github.com/input-output-hk/cryptokami-sl/blob/master/explorer/README.md).
+For more details about installation and launching please see [Explorer README](https://github.com/CryptoKami/cryptokami-core/blob/master/explorer/README.md).
 
 ## Send requests via curl
 

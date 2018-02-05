@@ -135,9 +135,9 @@ The following variables will be used in all following commands:
 CONFIG_KEY=mainnet_dryrun_full  # Should be the same as on the running nodes!
 RELAY_PEER=<IP>:3000            # A host of any relay node.
 
-COMMONOPTS="--system-start 0 --configuration-file ../cryptokami-sl/lib/configuration.yaml --configuration-key ${CONFIG_KEY} --mode=with-config"
+COMMONOPTS="--system-start 0 --configuration-file ../cryptokami-core/lib/configuration.yaml --configuration-key ${CONFIG_KEY} --mode=with-config"
 
-AUXXOPTS="--log-config ../cryptokami-sl/scripts/log-templates/log-config-qa.yaml --logs-prefix logs/aux-update.1.0.1 --db-path aux-update-1.0.1 --peer ${RELAY_PEER}"
+AUXXOPTS="--log-config ../cryptokami-core/log-configs/connect-to-cluster.yaml --logs-prefix logs/aux-update.1.0.1 --db-path aux-update-1.0.1 --peer ${RELAY_PEER}"
 ```
 
 Feel free to change the paths above (ending with `aux-update-1.0.1`)
@@ -275,7 +275,7 @@ Upload installers to S3 bucket:
     * S3 Bucket: `update.cryptokami-mainnet.iohk.io` in mainnet AWS role
 
 Download server URL is passed to the launcher/node in the following way:
-https://github.com/input-output-hk/daedalus/blob/eb713a66eb2c0445fbe8c2faa59f0884edd83712/installers/Launcher.hs#L68
+https://github.com/CryptoKami/daedalus/blob/eb713a66eb2c0445fbe8c2faa59f0884edd83712/installers/Launcher.hs#L68
 
 Deleting artefacts
 ===================

@@ -10,7 +10,7 @@ These are the steps we have to perform to do it:
 2.  stakeholder keys and delegate certificates (each stakeholder independently),
 3.  finalize AVVM utxo (IOHK DevOps),
 4.  VSS certificates (IOHK DevOps),
-5.  Genesis JSON: construction and validation (IOHK DevOps and Cryptokami SL Core).
+5.  Genesis JSON: construction and validation (IOHK DevOps and CryptoKami Core Core).
 
 Responsible are defined in the parentheses.
 
@@ -18,13 +18,13 @@ Please note that **parties** for Mainnet are IOHK, SGG and CF.
 
 ## 0. Preparation
 
-First of all, we have to build Cryptokami SL using this script:
+First of all, we have to build CryptoKami Core using this script:
 
 ```
 bash ./bootstrap-cryptokami.sh 2>&1 | tee bootstrap.log./build-cryptokami.sh
 ```
 
-It will install Nix package manager and build Cryptokami SL (using proper branch)
+It will install Nix package manager and build CryptoKami Core (using proper branch)
 inside of the Nix environment.
 
 ## 1. Delegate Keys
@@ -37,7 +37,7 @@ DELEGATE_PUBLIC=<pulic out path> REPO_PATH=<path to repo> DELEGATE_SECRET=<full 
 
 This script will generate 7 secret keys, for 7 nodes in the Mainnet cluster.
 
-Generated secret keys will be stored in `cryptokami-sl/keys/delegate/` directory.
+Generated secret keys will be stored in `cryptokami-core/keys/delegate/` directory.
 Each secret key should be put in the secret storage of IOHK and later should be
 uploaded to the node and used by it to perform blockchain-related procedures (for
 example, to sign new blocks).
@@ -89,7 +89,7 @@ And CF nominated individuals - this one:
 STAKEHOLDER_NAME=cf STAKEHOLDER_PUBLIC=<public ouput dir> STAKEHOLDER_SECRET=<cf secret keys dir> DELEGATE_PUBS=<path to list of all dpks> REPO_PATH=<path-to-repo> bash <path-to-repo>/scripts/prepare-genesis/cf-keys-and-certs.sh  2>&1 | tee step2-cf.log
 ```
 
-Generated secret keys will be stored in `cryptokami-sl/keys/stakeholder/` directory.
+Generated secret keys will be stored in `cryptokami-core/keys/stakeholder/` directory.
 
 Each stakeholder's secret key should be put in the secret storage of the party. Please node
 that the secret storage here should be **offline**, whereas the node keys (from previous step)
@@ -106,7 +106,7 @@ And at this point IOHK DevOps team has all the data required for genesis JSON pr
 
 The file `genesis-mainnet.json` contains detailed instructions how to generate genesis block.
 It contains balances, keys, certificates, etc. So the hash of `genesis-mainnet.json` will be a
-genesis hash. File `genesis-mainnet.json` is a part of Cryptokami SL repository.
+genesis hash. File `genesis-mainnet.json` is a part of CryptoKami Core repository.
 
 ### 3.1. Genesis JSON Format
 
@@ -186,7 +186,7 @@ Section `"blockVersionData"` contains fundamental blockchain-related values:
 *  `"heavyDelThd"` - heavyweight delegation threshold,
 *  `"maxBlockSize"` - maximum size of block, in bytes,
 *  `"maxHeaderSize"` - maximum size of block's header, in bytes,
-*  `"maxProposalSize"` - maximum size of Cryptokami SL update proposal, in bytes,
+*  `"maxProposalSize"` - maximum size of CryptoKami Core update proposal, in bytes,
 *  `"maxTxSize"` - maximum size of transaction, in bytes,
 *  `"mpcThd"` - threshold for participation in MPC,
 *  `"scriptVersion"` - script version, 
@@ -198,8 +198,8 @@ Section `"blockVersionData"` contains fundamental blockchain-related values:
 *  `"txFeePolicy"` - transaction fee policy's values,
 *  `"unlockStakeEpoch"` - unlock stake epoch,
 *  `"updateImplicit"` - update implicit period, in slots,
-*  `"updateProposalThd"` - threshold for Cryptokami SL update proposal,
-*  `"updateVoteThd"` - threshold for voting for Cryptokami SL update proposal.
+*  `"updateProposalThd"` - threshold for CryptoKami Core update proposal,
+*  `"updateVoteThd"` - threshold for voting for CryptoKami Core update proposal.
 
 Please note that values of all thresholds are fractional numbers here. So if particular threshold is
 defined as `X`, it's actual value is `X * 10^-15`.

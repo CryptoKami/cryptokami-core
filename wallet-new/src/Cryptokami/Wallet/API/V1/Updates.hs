@@ -1,5 +1,6 @@
 module Cryptokami.Wallet.API.V1.Updates where
 
+import           Cryptokami.Wallet.API.Response (ValidJSON, WalletResponse)
 import           Cryptokami.Wallet.API.V1.Types
 
 import           Servant
@@ -9,6 +10,6 @@ import           Servant
 type API =
          "updates" :> "next"
                    :> Summary "Requests information about the next scheduled update."
-                   :> Get '[JSON] WalletUpdate
+                   :> Get '[ValidJSON] (WalletResponse WalletUpdate)
     :<|> "updates" :> Summary "Applies the update. Returns info about the update being applied."
-                   :> Post '[JSON] WalletUpdate
+                   :> Post '[ValidJSON] (WalletResponse WalletUpdate)

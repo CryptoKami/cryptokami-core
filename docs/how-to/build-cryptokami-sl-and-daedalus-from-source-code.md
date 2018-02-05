@@ -1,30 +1,29 @@
-# How to Build Cryptokami SL and Daedalus from Source Code
+# How to Build CryptoKami Core and Daedalus from Source Code
 
-This manual describes how to build Cryptokami SL and Daedalus from the source code.
+This manual describes how to build CryptoKami Core and Daedalus from the source code.
 
-## Cryptokami SL and Daedalus
+## CryptoKami Core and Daedalus
 
-Cryptokami SL consists of a collection of binaries that constitute
-the backend, a PureScript API for the Electron-based wallet, and the
-Electron-based wallet called “Daedalus”.
+CryptoKami Core consists of a collection of binaries that constitute
+the backend and the Electron-based wallet called “Daedalus”.
 
-The source code of Cryptokami SL can be obtained from the
-[official repository](https://github.com/input-output-hk/cryptokami-sl).
+The source code of CryptoKami Core can be obtained from the
+[official repository](https://github.com/CryptoKami/cryptokami-sl).
 
-Cryptokami SL supports two ways for building itself:
+CryptoKami Core supports two ways for building itself:
 
 -   (preferred) [Nix](https://nixos.org/nix/) package manager (backed by a binary cache by IOHK continuous integration)
 -   [Stack](https://haskellstack.org) with Nix for system libraries
 
 In any case, we strongly suggest using [Nix package manager](https://nixos.org/nix/download.html)
-to get the correct dependencies for building Cryptokami SL. It will fetch the correct `openssl` version,
+to get the correct dependencies for building CryptoKami Core. It will fetch the correct `openssl` version,
 but won't override the system-installed version. The following commands assume that you already have
 `stack` and `nix-*` programs.
 
 ### Binaries
 
-As a result of building Cryptokami SL, you will get a set of components (binary files). This set includes
-the main node for Cryptokami SL network and various helper tools. Please read
+As a result of building CryptoKami Core, you will get a set of components (binary files). This set includes
+the main node for CryptoKami Core network and various helper tools. Please read
 [this page of the documentation](https://cryptokamidocs.com/technical/cli-options/) for technical details.
 
 ## Common build steps
@@ -32,9 +31,9 @@ the main node for Cryptokami SL network and various helper tools. Please read
 The following steps are shared between the two methods of building Cryptokami: fetching source and deciding
 on a branch to be built.
 
-Clone Cryptokami SL repository and go to the root directory:
+Clone CryptoKami Core repository and go to the root directory:
 
-    $ git clone https://github.com/input-output-hk/cryptokami-sl.git
+    $ git clone https://github.com/CryptoKami/cryptokami-sl.git
     $ cd cryptokami-sl
 
 Switch to the `master` branch:
@@ -59,7 +58,7 @@ Two steps remain, then:
         binary-caches            = https://cache.nixos.org https://hydra.iohk.io
         binary-cache-public-keys = hydra.iohk.io:f/Ea+s+dFdN+3Y/G+FDgSq+a5NEWhJGzdjvKNGv0/EQ=
 
-2.  Actually building the Cryptokami SL node (or, most likely, simply obtaining it
+2.  Actually building the CryptoKami Core node (or, most likely, simply obtaining it
     from the IOHK's binary caches) can be performed by building the attribute `cryptokami-sl-static`:
 
         $ nix-build -A cryptokami-sl-static --cores 0 --max-jobs 2 --no-build-output --out-link master
@@ -95,12 +94,12 @@ Enter `nix-shell`:
 
     $ nix-shell
 
-After that, in order to build Cryptokami SL with wallet capabilities, run the following script:
+After that, in order to build CryptoKami Core with wallet capabilities, run the following script:
 
     [nix-shell:~/cryptokami-sl]$ ./scripts/build/cryptokami-sl.sh
 
 Dependecy version collisions have been encountered on macOS. If you run into something
-[like this](https://github.com/input-output-hk/cryptokami-sl/issues/2230#issuecomment-354881696),
+[like this](https://github.com/CryptoKami/cryptokami-core/issues/2230#issuecomment-354881696),
 try running the following command from outside of a `nix-shell`
 
     $ nix-shell -p moreutils expect --run "unbuffer ./scripts/build/cryptokami-sl.sh | ts"
@@ -172,7 +171,7 @@ Let's proceed with building the wallet.
 Clone Daedalus repository and go to the root directory:
 
     [nix-shell:~/cryptokami-sl]$ cd
-    [nix-shell:~]$ git clone https://github.com/input-output-hk/daedalus.git
+    [nix-shell:~]$ git clone https://github.com/CryptoKami/daedalus.git
     [nix-shell:~]$ cd daedalus
     [nix-shell:~/daedalus]$ npm install
 

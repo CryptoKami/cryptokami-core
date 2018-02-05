@@ -98,8 +98,8 @@ getOptions :: IO CLIOptions
 getOptions = execParser programInfo
   where
     programInfo = info (helper <*> optionsParser) $
-        fullDesc <> progDesc "Analyse a blockchain and spit out useful metrics."
-                 <> header "Cryptokami SL blockchain generator"
+        fullDesc <> progDesc "Analyze a blockchain and spit out useful metrics."
+                 <> header "CryptoKami Core blockchain generator"
                  <> footerDoc usageExample
 
 usageExample :: Maybe Doc

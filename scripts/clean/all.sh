@@ -4,13 +4,12 @@ set -o pipefail
 
 echo "Cleaning all databases and artifacts..."
 
-echo "Are you sure you want to remove .stack-work directory? You will have to rebuild Cryptokami SL completely. Type 'yes' to continue..."
+echo "Are you sure you want to remove .stack-work directory? You will have to rebuild CryptoKami Core completely. Type 'yes' to continue..."
 read DECISION
 if [ "${DECISION}" == "yes" ]; then
-    echo "Cleaning Cryptokami SL stack-work..."
+    echo "Cleaning CryptoKami Core stack-work..."
     rm -rf .stack-work
     ./scripts/clean/db.sh
-    ./scripts/clean/daedalus-bridge.sh
     ./scripts/clean/explorer-bridge.sh
     exit 0
 else

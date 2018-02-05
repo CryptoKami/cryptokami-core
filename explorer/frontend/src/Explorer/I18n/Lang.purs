@@ -1,4 +1,4 @@
--- | Based on https://github.com/input-output-hk/vending-application/blob/master/web-client/src/Data/I18N.purs
+-- | Based on https://github.com/CryptoKami/vending-application/blob/master/web-client/src/Data/I18N.purs
 module Explorer.I18n.Lang where
 
 import Prelude

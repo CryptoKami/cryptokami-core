@@ -26,10 +26,10 @@ main = do
       where
         programInfo = info (helper <*> versionOption) $
             fullDesc <> progDesc "Run mock for Explorer web API."
-                     <> header   "Cryptokami SL Explorer web mock."
+                     <> header   "CryptoKami Core Explorer web mock."
                      <> footer   ("This program returns just the mocked data. " <>
                                   "It doesn't call any CSL functions and doesn't interact with it. " <>
-                                  "It just implements the API and returns simeple test data.")
+                                  "It just implements the API and returns simple test data.")
 
         versionOption = infoOption
             ("cryptokami-mock-" <> showVersion CSLE.version)

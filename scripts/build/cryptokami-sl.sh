@@ -16,7 +16,7 @@ set -o pipefail
 #   scripts/build/cryptokami-sl.sh -k              typecheck but do not build
 #   scripts/build/cryptokami-sl.sh -c              do stack clean
 #
-# Consider symlinking the script as `b` into the cryptokami-sl folder because
+# Consider symlinking the script as `b` into the cryptokami-core folder because
 # typing `scripts/build/cryptokami-sl.sh` is annoying.
 
 # PROJECTS

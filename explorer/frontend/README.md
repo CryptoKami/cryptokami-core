@@ -24,7 +24,7 @@ nix:
 #### Build in `development` mode
 
 ```bash
-cd {path/to}/cryptokami-sl/explorer/frontend
+cd {path/to}/cryptokami-core/explorer/frontend
 ./scripts/build.sh server:dev
 ```
 
@@ -32,7 +32,7 @@ cd {path/to}/cryptokami-sl/explorer/frontend
 #### Build in `production` mode
 
 ```bash
-cd {path/to}/cryptokami-sl/explorer/frontend
+cd {path/to}/cryptokami-core/explorer/frontend
 ./scripts/build.sh
 ```
 
@@ -52,7 +52,7 @@ To match all needed backend types of `cryptokami-sl-explorer` you do need to gen
 Use latest executable of `cryptokami-sl-explorer`:
 
 ```bash
-git clone https://github.com/input-output-hk/cryptokami-sl
+git clone https://github.com/CryptoKami/cryptokami-sl
 cd cryptokami-sl
 scripts/build/cryptokami-sl.sh explorer
 ```
@@ -163,11 +163,11 @@ stack exec cryptokami-keygen -- --dump-dev-genesis-keys keys/{}.key
   undefined
   > var js = require('../src/tls_workaround.js')
   undefined
-  > var ca = js.readCA('{path/to}/cryptokami-sl/scripts/tls-files/ca.crt')
+  > var ca = js.readCA('{path/to}/cryptokami-core/scripts/tls-files/ca.crt')
   undefined
   > var tls = api.tlsInit(ca)
   undefined
-  > api.importWallet(tls, '{path/to}/cryptokami-sl/keys/2.key', null).then(console.log).catch(console.log)
+  > api.importWallet(tls, '{path/to}/cryptokami-core/keys/2.key', null).then(console.log).catch(console.log)
   ```
   For recent API of `daedalus-bridge` check documentation of [`CARDANO SL WALLET FRONTEND`](https://cryptokamidocs.com/technical/wallet-frontend/)
 
@@ -188,7 +188,7 @@ cryptokami-explorer: Internal "Key file access mode is incorrect. Set it to 600 
 
 - Solution:
 ```
-cd {path/to}/cryptokami-sl/explorer
+cd {path/to}/cryptokami-core/explorer
 rm secret.key secret.key.lock
 ```
 

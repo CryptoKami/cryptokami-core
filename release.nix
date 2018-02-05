@@ -24,7 +24,7 @@ let
     EOF
   '';
   platforms = {
-    cryptokami-sl = supportedSystems;
+    cryptokami-core = supportedSystems;
     cryptokami-sl-auxx = supportedSystems;
     cryptokami-sl-node-static = supportedSystems;
     cryptokami-sl-tools = supportedSystems;

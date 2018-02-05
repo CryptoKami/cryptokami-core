@@ -39,7 +39,7 @@
 * [Block structure](https://cryptokamidocs.com/technical/blocks/#design).
   Specifically, you need to know about how transactions are stored in blocks.
 * [Update Mechanism](https://cryptokamidocs.com/cryptokami/update-mechanism/).
-* [Block processing](block-processing.md).
+* [Block processing](overall.md).
 
 ## Overview
 
@@ -103,8 +103,8 @@ components).
   ```
 
   UTXO is a map from `TxIn` to
-  `TxOutAux` ([code](https://github.com/input-output-hk/cryptokami-sl/blob/e7cfb1724024e0db2f25ddd2eb8f8f17c0bc497f/txp/Pos/Txp/Toil/Types.hs#L58)) which contains all unspent outputs.
-  * `TxOutAux` is just an alias for `TxOut` ([code](https://github.com/input-output-hk/cryptokami-sl/blob/e7cfb1724024e0db2f25ddd2eb8f8f17c0bc497f/txp/Pos/Txp/Core/Types.hs#L160)). Later it can be extended if we want to associate
+  `TxOutAux` ([code](https://github.com/CryptoKami/cryptokami-core/blob/e7cfb1724024e0db2f25ddd2eb8f8f17c0bc497f/txp/Pos/Txp/Toil/Types.hs#L58)) which contains all unspent outputs.
+  * `TxOutAux` is just an alias for `TxOut` ([code](https://github.com/CryptoKami/cryptokami-core/blob/e7cfb1724024e0db2f25ddd2eb8f8f17c0bc497f/txp/Pos/Txp/Core/Types.hs#L160)). Later it can be extended if we want to associate
   more data with unspent outputs (e. g. slot of the block in which
   this transaction appeared).
   * If a transaction `A` has 1 output (`out1`) which hasn't been
@@ -120,7 +120,7 @@ components).
   * Stakes are not needed for tx verification
   * Stakes are maintained by tx processing: we store total stake and a map from `StakeholderId` to its stake (`Coin`)
 * Adopted `BlockVersionData`.
-  This data type ([code](https://github.com/input-output-hk/cryptokami-sl/blob/e7cfb1724024e0db2f25ddd2eb8f8f17c0bc497f/core/Pos/Core/Types.hs#L318)) contains various
+  This data type ([code](https://github.com/CryptoKami/cryptokami-core/blob/e7cfb1724024e0db2f25ddd2eb8f8f17c0bc497f/core/Pos/Core/Types.hs#L318)) contains various
   parameters of the algorithm
   which can be updated by Update System (details are not covered in this document).
 
@@ -244,7 +244,7 @@ We require:
 * Both `redeemer` and `validator` scripts have the same version.
 * If `verifyAllIsKnown` is `True`, script version (which is same for
     redeemer and validator) must be known.
-    - For Cryptokami SL 1.0 it means that version must be equal to 0,
+    - For CryptoKami Core 1.0 it means that version must be equal to 0,
       it's the only version known to our software.
 * Plutus validation script built from redeemer and validator for
     given tx must return `True`
@@ -301,7 +301,7 @@ For this check we know:
 * Currently adopted tx fee policy (as part of `BlockVersionData`), which is of known type
 
 ###### Size-linear policy
-Only policy supported by Cryptokami SL v1.0 is `TxFeePolicyTxSizeLinear`.
+Only policy supported by CryptoKami Core v1.0 is `TxFeePolicyTxSizeLinear`.
 
 For it, we need to compute minimal required fee for this transaction.
 This value is computed using fixed-precision arithmetic (precision is 1e-9) using formula:

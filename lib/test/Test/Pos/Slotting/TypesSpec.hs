@@ -53,7 +53,7 @@ testSlottingData = createInitSlottingData testEpochSlottingData0 testEpochSlotti
 ----------------------------------------------------------------------------
 
 -- stack test --no-run-tests
--- stack test cryptokami-sl --fast --test-arguments "-m Test.Pos.Slotting.Types"
+-- stack test cryptokami-core --fast --test-arguments "-m Test.Pos.Slotting.Types"
 spec :: Spec
 spec = describe "Types" $ do
     describe "createSlottingDataUnsafe" $

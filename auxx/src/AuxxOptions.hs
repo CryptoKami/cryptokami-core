@@ -108,7 +108,7 @@ getAuxxOptions :: HasCompileInfo => IO AuxxOptions
 getAuxxOptions = execParser programInfo
   where
     programInfo = info (helper <*> versionOption <*> auxxOptionsParser) $
-        fullDesc <> progDesc "Cryptokami SL CLI utilities."
+        fullDesc <> progDesc "CryptoKami Core CLI utilities."
                  <> header "CLI-based utilities (auxx)."
                  <> footerDoc usageExample
 

@@ -2,7 +2,7 @@
 {-# LANGUAGE CPP           #-}
 {-# LANGUAGE QuasiQuotes   #-}
 
--- | Command line options of pos-node.
+-- | Command line options of Cryptokami node.
 
 module Pos.Client.CLI.NodeOptions
        ( CommonNodeArgs (..)
@@ -127,8 +127,8 @@ getSimpleNodeOptions :: HasCompileInfo => IO SimpleNodeArgs
 getSimpleNodeOptions = execParser programInfo
   where
     programInfo = info (helper <*> versionOption <*> simpleNodeArgsParser) $
-        fullDesc <> progDesc "Cryptokami SL main server node."
-                 <> header "Cryptokami SL node."
+        fullDesc <> progDesc "CryptoKami Core main server node."
+                 <> header "CryptoKami Core node."
                  <> footerDoc usageExample
 
     versionOption = infoOption

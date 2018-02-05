@@ -19,16 +19,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/input-output-hk/cryptokami-sl.git"
+    "url": "git+https://github.com/CryptoKami/cryptokami-sl.git"
   },
   "keywords": [],
   "author": {},
   "contributors": [],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/input-output-hk/cryptokami-sl/issues"
+    "url": "https://github.com/CryptoKami/cryptokami-core/issues"
   },
-  "homepage": "https://github.com/input-output-hk/cryptokami-sl/tree/master/explorer#readme",
+  "homepage": "https://github.com/CryptoKami/cryptokami-core/tree/master/explorer#readme",
   "dependencies": {
     "animate.css": "^3.5.2",
     "babel-polyfill": "^6.26.0",

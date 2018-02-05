@@ -1,13 +1,12 @@
-# Cryptokami SL Scripts
+# CryptoKami Core Scripts
 
 This directory contains Bash scripts we use for different tasks (e.g. building, launching, CI).
 
 ## Build
 
-* `build/cryptokami-sl.sh` - build Cryptokami SL, both in `dev` and `prod` modes.
-* `build/daedalus-bridge.sh` - build Daedalus Bridge, for work with Daedalus wallet.
+* `build/cryptokami-sl.sh` - build CryptoKami Core, both in `dev` and `prod` modes.
 
-Please note that running mode depends on building mode! E.g. if you built Cryptokami SL in `dev`
+Please note that running mode depends on building mode! E.g. if you built CryptoKami Core in `dev`
 mode, it will run in `dev` mode as well, and if you built it in `prod` mode, it will run in
 `prod` mode as well.
 
@@ -36,20 +35,19 @@ mode, it will run in `dev` mode as well, and if you built it in `prod` mode, it 
 
 ## Clean
 
-* `clean/db.sh` - clean Cryptokami SL DB data.
-* `clean/daedalus-bridge.sh` - clean Daedalus Bridge building artifacts.
+* `clean/db.sh` - clean CryptoKami Core DB data.
 * `clean/all.sh` - do previous steps and clean `.stack-work` directory as well (in this case full rebuilding is required).
 
 ## Generate
 
-* `generate/certificates.sh` - generate certificates using [`postvend-app`](https://github.com/input-output-hk/postvend-app). Please make sure you have `postvend-cli` command in your `PATH`.
+* `generate/certificates.sh` - generate certificates using [`postvend-app`](https://github.com/CryptoKami/postvend-app). Please make sure you have `postvend-cli` command in your `PATH`.
 * `generate/genesis.sh` - generate keys using `cryptokami-keygen`.
 
 ## Haskell
 
-* `haskell/lint.sh` - `hlint` command for Cryptokami SL source code. It uses `HLint.hs`-settings (from the project's root).
-* `haskell/stylish.sh` - `stylish-haskell` command for Cryptokami SL source code.
-* `haskell/update-cabal-versions.sh` - update Cryptokami SL version in all `.cabal`-files.
+* `haskell/lint.sh` - `hlint` command for CryptoKami Core source code. It uses `HLint.hs`-settings (from the project's root).
+* `haskell/stylish.sh` - `stylish-haskell` command for CryptoKami Core source code.
+* `haskell/update-cabal-versions.sh` - update CryptoKami Core version in all `.cabal`-files.
 * `haskell/recover-from-stack-clean.sh` - useful if you're using Atom editor with `haskell-ghc-mod`.
 
 ## CI
@@ -57,17 +55,13 @@ mode, it will run in `dev` mode as well, and if you built it in `prod` mode, it 
 Please note that these scripts are for CI only (we use Buildkite and AppVeyor). These scripts rely on specific environment variables, so manual running of these scripts on your machine is not implied.
 
 * `ci/ci.sh` - main script for Buildkite CI.
-* `ci/update-cli-docs.sh` - update [Cryptokami SL CLI Options](https://cryptokamidocs.com/technical/cli-options/) chapter.
-* `ci/update-haddock.sh` - update Haddock-documentation for Cryptokami SL source code.
-* `ci/update-wallet-web-api-docs.sh` - update [Cryptokami SL Wallet Web API](https://cryptokamidocs.com/technical/wallet/api/) chapter.
-* `ci/update-explorer-web-api-docs.sh` - update [Cryptokami SL Explorer Web API](https://cryptokamidocs.com/technical/explorer/api/) chapter.
+* `ci/update-cli-docs.sh` - update [CryptoKami Core CLI Options](https://cryptokamidocs.com/technical/cli-options/) chapter.
+* `ci/update-haddock.sh` - update Haddock-documentation for CryptoKami Core source code.
+* `ci/update-wallet-web-api-docs.sh` - update [CryptoKami Core Wallet Web API](https://cryptokamidocs.com/technical/wallet/api/) chapter.
+* `ci/update-explorer-web-api-docs.sh` - update [CryptoKami Core Explorer Web API](https://cryptokamidocs.com/technical/explorer/api/) chapter.
 * `ci/appveyor-retry.cmd` - command we use in `appveyor.yml` configuration file.
 
 ## Common
 
 * `common-functions.sh` - different Bash-functions we call in other scripts.
-* `grep.sh` - search in Cryptokami SL source code.
-
-## Log Configuration Templates
-
-Directory `log-templates` contains different YAML-templates for logging configuration.
+* `grep.sh` - search in CryptoKami Core source code.

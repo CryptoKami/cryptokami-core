@@ -57,7 +57,7 @@ getUpdateGenOptions = execParser programInfo
   where
     programInfo = info (helper <*> versionOption <*> optionsParser) $
         fullDesc <> progDesc ("")
-                 <> header "Cryptokami SL updates generator."
+                 <> header "CryptoKami Core updates generator."
                  <> footerDoc usageExample
 
     versionOption = infoOption

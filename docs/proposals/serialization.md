@@ -103,7 +103,7 @@ suggested by Q1).
 
 ### Solution 1: Approach with "RawX and X".
 
-Described in https://github.com/input-output-hk/cryptokami-sl/pull/1823#issuecomment-342475355
+Described in https://github.com/CryptoKami/cryptokami-core/pull/1823#issuecomment-342475355
 
 It solves the problem by rejecting Q2. Though, there is a serious
 drawback with it: You must propagate "Raw" to all record
@@ -137,7 +137,7 @@ duplicating datatypes?
 ### Solution 2: using GADT/DataKinds
 
 Another no-Q2 solution suggested in
-https://github.com/input-output-hk/cryptokami-sl/pull/1823#issuecomment-342478781
+https://github.com/CryptoKami/cryptokami-core/pull/1823#issuecomment-342478781
 
 Has the very same drawback as the first solution. It is actually a
 cosmetic improvement that gives another tradeoff:
@@ -196,7 +196,7 @@ whether using this approach will produce bigger diff.
 ## Decision
 
 Decision was made in the following PR:
-https://github.com/input-output-hk/cryptokami-sl/pull/1903
+https://github.com/CryptoKami/cryptokami-core/pull/1903
 
 We will adopt solution 3 (phantom types) and extend it with type families (as 
 suggested in the PR) if needed.

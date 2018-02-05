@@ -128,7 +128,7 @@ auxxReplOn printActionVar putCommand = Haskeline.runInputT settings $ do
     greetings
     loop (prompt putCommand)
   where
-    greetings = outputTextLn "Welcome to Cryptokami SL Auxx REPL"
+    greetings = outputTextLn "Welcome to CryptoKami Core Auxx REPL"
     settings = Haskeline.Settings
         { Haskeline.complete       = Haskeline.noCompletion
         , Haskeline.historyFile    = Nothing -- TODO: CSL-1779, pass it from CLI

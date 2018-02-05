@@ -1,7 +1,7 @@
 name:                cryptokami-sl-tools
 version:             1.0.3
-synopsis:            Cryptokami SL - Tools
-description:         Cryptokami SL - Tools
+synopsis:            CryptoKami Core - Tools
+description:         CryptoKami Core - Tools
 license:             MIT
 license-file:        LICENSE
 author:              Serokell
@@ -84,6 +84,7 @@ executable cryptokami-dht-keygen
                         BangPatterns
                         ApplicativeDo
                         ScopedTypeVariables
+                        MonadFailDesugaring
 
   build-tools: cpphs >= 1.19
   ghc-options: -pgmP cpphs -optP --cpp
@@ -125,6 +126,7 @@ executable cryptokami-genupdate
                        ApplicativeDo
                        RecordWildCards
                        ScopedTypeVariables
+                       MonadFailDesugaring
 
 executable cryptokami-keygen
   hs-source-dirs:      src/keygen
@@ -195,6 +197,7 @@ executable cryptokami-keygen
                         UndecidableInstances
                         BangPatterns
                         ScopedTypeVariables
+                        MonadFailDesugaring
 
   if flag(for-installer)
     buildable: False
@@ -205,7 +208,8 @@ executable cryptokami-launcher
   hs-source-dirs:      src/launcher
   main-is:             Main.hs
 
-  build-depends:       ansi-wl-pprint
+  build-depends:       aeson
+                     , ansi-wl-pprint
                      , async
                      , base
                      , bytestring
@@ -227,10 +231,13 @@ executable cryptokami-launcher
                      , optparse-applicative
                      , process
                      , safe-exceptions
+                     , serokell-util
                      , silently
                      , text
                      , time-units
                      , universum
+                     , unordered-containers
+                     , yaml
   if !os(windows)
     build-depends:     unix
   default-language:    Haskell2010
@@ -249,6 +256,7 @@ executable cryptokami-launcher
                        TypeApplications
                        BangPatterns
                        ScopedTypeVariables
+                       MonadFailDesugaring
 
   if os(windows)
     LD-Options:     -mwindows
@@ -260,6 +268,8 @@ executable cryptokami-addr-convert
                      , ansi-wl-pprint
                      , cryptokami-sl
                      , cryptokami-sl-core
+                     , cryptokami-sl-crypto
+                     , cryptokami-sl-util
                      , neat-interpolation
                      , optparse-applicative
                      , text
@@ -295,6 +305,7 @@ executable cryptokami-addr-convert
                         UndecidableInstances
                         ApplicativeDo
                         ScopedTypeVariables
+                        MonadFailDesugaring
 
 executable cryptokami-cli-docs
   hs-source-dirs:      src/cli-docs
@@ -327,6 +338,7 @@ executable cryptokami-cli-docs
                         OverloadedStrings
                         ApplicativeDo
                         ScopedTypeVariables
+                        MonadFailDesugaring
 
   build-tools: cpphs >= 1.19
   ghc-options: -pgmP cpphs -optP --cpp
@@ -415,6 +427,7 @@ executable cryptokami-post-mortem
                         ScopedTypeVariables
                         ScopedTypeVariables
                         BangPatterns
+                        MonadFailDesugaring
 
 executable cryptokami-blockchain-analyser
   hs-source-dirs:      src/blockchain-analyser
@@ -438,7 +451,6 @@ executable cryptokami-blockchain-analyser
                      , cryptokami-sl-util
                      , data-default
                      , directory
-                     , ether
                      , formatting
                      , lens
                      , mtl
@@ -465,6 +477,7 @@ executable cryptokami-blockchain-analyser
                         TypeApplications
                         ScopedTypeVariables
                         FlexibleContexts
+                        MonadFailDesugaring
 
   build-tools: cpphs >= 1.19
   ghc-options: -pgmP cpphs -optP --cpp

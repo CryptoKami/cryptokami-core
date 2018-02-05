@@ -14,7 +14,7 @@ Important fixes:
 
 Important codebase changes:
 
-1. Code split to separate components (for each logical part of Cryptokami SL)
+1. Code split to separate components (for each logical part of CryptoKami Core)
 2. Combined config for wallet, node, dev modes
 3. Block handling refactoring (needed to write tests)
 4. Data relay refactoring

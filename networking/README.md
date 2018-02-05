@@ -1,6 +1,6 @@
 # cryptokami-sl-networking
 
-Subproject with abstracted networking logic that is used in Cryptokami SL.
+Subproject with abstracted networking logic that is used in CryptoKami Core.
 
 ## Overview
 
