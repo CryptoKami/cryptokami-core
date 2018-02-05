@@ -8,7 +8,7 @@ Block processing can be described by presenting an algorithm to solve the follow
 (where `B₀` is the first genesis block) check whether these blocks are valid.
 
 We describe block processing as stateful algorithm:
-* Initial state `S₀` is derived from blockchain genesis data (see [mainnet genesis JSON](https://raw.githubusercontent.com/input-output-hk/cryptokami-sl/e7cfb1724024e0db2f25ddd2eb8f8f17c0bc497f/node/mainnet-genesis.json))
+* Initial state `S₀` is derived from blockchain genesis data (see [mainnet genesis JSON](https://raw.githubusercontent.com/CryptoKami/cryptokami-core/e7cfb1724024e0db2f25ddd2eb8f8f17c0bc497f/node/mainnet-genesis.json))
 * `S₁, S₂, …` are maintained as sequential application of blocks  `B₀, B₁, B₂, … ` to state `S₀`
 * We maintain some state called GState which corresponds to the application of a sequence of blocks.
 * State transition function. Given GState `S` and a block `B` 

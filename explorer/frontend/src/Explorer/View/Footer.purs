@@ -65,7 +65,7 @@ footerView state =
                 S.span  ! S.className "version"
                         $ S.text ("v. " <> version)
                 S.a ! S.className "commit"
-                    ! S.href ("https://github.com/input-output-hk/cryptokami-sl/commit/" <> commitHash)
+                    ! S.href ("https://github.com/CryptoKami/cryptokami-core/commit/" <> commitHash)
                     $ S.text $ "( " <> (take 7 $ commitHash) <> " )"
 
 -- lang
@@ -103,7 +103,7 @@ socialItems lang =
       , iconClazz: "bg-icon-email"
       }
     , { label: translate (I18nL.footer <<< I18nL.fooGithub) lang
-      , link: "https://github.com/input-output-hk/cryptokami-sl/"
+      , link: "https://github.com/CryptoKami/cryptokami-core/"
       , iconClazz: "bg-icon-github"
       }
     ]
@@ -142,7 +142,7 @@ navItemsLeft lang =
       , link: "https://tada.iohk.io"
       }
     , { label: translate (I18nL.footer <<< I18nL.fooCryptokamiSource) lang
-      , link: "https://github.com/input-output-hk/cryptokami-sl"
+      , link: "https://github.com/CryptoKami/cryptokami-sl"
       }
     , { label: translate (I18nL.footer <<< I18nL.fooCryptokamiFoundation) lang
       , link: "https://cryptokamifoundation.org"

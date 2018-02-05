@@ -7,7 +7,7 @@ set -o pipefail
 
 # TODO: support purescript API rebuilding?
 
-echo "Cleaning Cryptokami SL db..."
+echo "Cleaning CryptoKami Core db..."
 
 rm -rf run/*
 rm -rf wallet-db/

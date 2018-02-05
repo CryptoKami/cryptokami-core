@@ -35,7 +35,7 @@ import           Test.Pos.Util             (HasStaticConfigurations, splitIntoCh
 -- Spec
 ----------------------------------------------------------------------------
 
--- stack test cryptokami-sl --fast --test-arguments "-m Test.Pos.Explorer.BListener"
+-- stack test cryptokami-core --fast --test-arguments "-m Test.Pos.Explorer.BListener"
 spec :: Spec
 spec = do
     unitSpec

@@ -82,8 +82,8 @@ getWalletNodeOptions :: HasCompileInfo => IO WalletNodeArgs
 getWalletNodeOptions = execParser programInfo
   where
     programInfo = info (helper <*> versionOption <*> walletArgsParser) $
-        fullDesc <> progDesc "Cryptokami SL main server node w/ wallet."
-                 <> header "Cryptokami SL node."
+        fullDesc <> progDesc "CryptoKami Core main server node w/ wallet."
+                 <> header "CryptoKami Core node."
                  <> footerDoc CLI.usageExample
 
     versionOption = infoOption

@@ -1,6 +1,6 @@
-# Cryptokami SL configuration
+# CryptoKami Core configuration
 
-This document describes Cryptokami SL configuration. Note: the
+This document describes CryptoKami Core configuration. Note: the
 description is valid for git revision **b674421cc**. It may be
 outdated for newer version of the code.
 
@@ -57,7 +57,7 @@ is `configuration.yaml`. This file contains multiple configurations,
 each one is associated with a key.  An example of configuration can be
 found in the file `lib/configuration.yaml`.
 
-Configuration consists of several parts (for different parts of Cryptokami SL),
+Configuration consists of several parts (for different parts of CryptoKami Core),
 each will be descirbed below:
 
 * `core` configuration
@@ -237,7 +237,7 @@ Section `"blockVersionData"` contains fundamental blockchain-related values:
 *  `"heavyDelThd"` - heavyweight delegation threshold,
 *  `"maxBlockSize"` - maximum size of block, in bytes,
 *  `"maxHeaderSize"` - maximum size of block's header, in bytes,
-*  `"maxProposalSize"` - maximum size of Cryptokami SL update proposal, in bytes,
+*  `"maxProposalSize"` - maximum size of CryptoKami Core update proposal, in bytes,
 *  `"maxTxSize"` - maximum size of transaction, in bytes,
 *  `"mpcThd"` - threshold for participation in SSC (shared seed computation),
 *  `"scriptVersion"` - script version,
@@ -249,8 +249,8 @@ Section `"blockVersionData"` contains fundamental blockchain-related values:
 *  `"txFeePolicy"` - transaction fee policy's values,
 *  `"unlockStakeEpoch"` - unlock stake epoch after which bootstrap era ends,
 *  `"updateImplicit"` - update implicit period, in slots,
-*  `"updateProposalThd"` - threshold for Cryptokami SL update proposal,
-*  `"updateVoteThd"` - threshold for voting for Cryptokami SL update proposal.
+*  `"updateProposalThd"` - threshold for CryptoKami Core update proposal,
+*  `"updateVoteThd"` - threshold for voting for CryptoKami Core update proposal.
 
 Please note that values of all thresholds are multiplied by `10⁻¹⁵`. So if particular threshold is
 defined as `X`, its actual value is `X * 10⁻¹⁵`.

@@ -11,7 +11,7 @@ if [[ ("$OS_NAME" == "linux") && ("$BUILDKITE_BRANCH" == "master") ]];
   else with_haddock=false
 fi
 
-targets="cryptokami-sl cryptokami-sl-auxx cryptokami-sl-tools cryptokami-sl-wallet"
+targets="cryptokami-core cryptokami-sl-auxx cryptokami-sl-tools cryptokami-sl-wallet"
 
 # There are no macOS explorer devs atm and it's only deployed on linux
 if [[ "$OS_NAME" == "linux" ]]; then
@@ -31,7 +31,7 @@ for trgt in $targets; do
   # echo "Prebuilding dependencies for $trgt, quietly.."
   # nix-shell -A $trgt --run true --no-build-output --cores 0 --max-jobs 4 default.nix ||
   #         echo "Prebuild failed!"
-          
+
   echo "Building $trgt verbosely.."
   nix-build -A $trgt -o $trgt.root --argstr gitrev $BUILDKITE_COMMIT
 #    TODO: CSL-1133
@@ -52,13 +52,12 @@ done
   #./update-haddock.sh
 #fi
 
-./cryptokami-sl-wallet.root/bin/cryptokami-wallet-hs2purs
-
 # Generate daedalus-bridge
+mkdir -p daedalus
 pushd daedalus
   echo $BUILDKITE_BUILD_NUMBER > build-id
   echo $BUILDKITE_COMMIT > commit-id
-  cp ../log-config-prod.yaml .
+  cp ../log-configs/daedalus.yaml ./log-config-prod.yaml
   cp ../lib/configuration.yaml .
   cp ../lib/*genesis*.json .
   cp ../cryptokami-sl-tools.root/bin/cryptokami-launcher .

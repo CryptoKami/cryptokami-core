@@ -2,8 +2,8 @@
 
 ## Bug Reports
 
-Please [open an issue](https://github.com/input-output-hk/cryptokami-sl/issues/new)
-to report about found bugs in Cryptokami SL.
+Please [open an issue](https://github.com/CryptoKami/cryptokami-core/issues/new)
+to report about found bugs in CryptoKami Core.
 
 The more detailed your report, the faster it can be resolved and will ensure it
 is resolved in the right way.
@@ -11,8 +11,8 @@ is resolved in the right way.
 ## Code
 
 If you would like to contribute code to fix a bug, add a new feature, or
-otherwise improve Cryptokami SL, pull requests are most welcome. It is a good idea to
-[submit an issue](https://github.com/input-output-hk/cryptokami-sl/issues/new) to
+otherwise improve CryptoKami Core, pull requests are most welcome. It is a good idea to
+[submit an issue](https://github.com/CryptoKami/cryptokami-core/issues/new) to
 discuss the change before plowing into writing code.
 
 Please make sure your contributions adhere to our coding guidelines:
@@ -24,16 +24,16 @@ Please make sure your contributions adhere to our coding guidelines:
    branch.
 *  Please refer to [this guide](https://chris.beams.io/posts/git-commit/) to write a good Git commit message.
 
-Please note that Cryptokami SL uses a custom prelude [Universum](https://github.com/serokell/universum)
+Please note that CryptoKami Core uses a custom prelude [Universum](https://github.com/serokell/universum)
 instead of the default one.
 
 ### Code Quality
 
-Cryptokami SL uses [HLint](https://github.com/ndmitchell/hlint) as a code quality tool.
+CryptoKami Core uses [HLint](https://github.com/ndmitchell/hlint) as a code quality tool.
 
 You can install it using `stack install hlint` command.
 
-To check Cryptokami SL code run this script (from the `cryptokami-sl` root directory):
+To check CryptoKami Core code run this script (from the `cryptokami-sl` root directory):
 
 ```
 $ ./scripts/haskell/lint.sh
@@ -41,7 +41,7 @@ $ ./scripts/haskell/lint.sh
 
 ### Code Style
 
-Cryptokami SL uses [stylish-haskell](https://github.com/jaspervdj/stylish-haskell) tool to
+CryptoKami Core uses [stylish-haskell](https://github.com/jaspervdj/stylish-haskell) tool to
 prettify Haskell code.
 
 Please note that there is `.stylish-haskell.yaml` in the root of the repository. This
@@ -51,15 +51,15 @@ You can install it using `stack install stylish-haskell` command.
 
 ## Documentation
 
-Cryptokami SL Documentation is published at [cryptokamidocs.com](https://cryptokamidocs.com).
+CryptoKami Core Documentation is published at [cryptokamidocs.com](https://cryptokamidocs.com).
 
-Please note that we have a [separate repository for documentation](https://github.com/input-output-hk/cryptokamidocs.com/). 
-So if you would like to help with documentation, please [submit a pull request](https://github.com/input-output-hk/cryptokamidocs.com/pulls)
+Please note that we have a [separate repository for documentation](https://github.com/CryptoKami/cryptokamidocs.com/). 
+So if you would like to help with documentation, please [submit a pull request](https://github.com/CryptoKami/cryptokamidocs.com/pulls)
 with your changes/additions.
 
 ## Testing
 
-To run tests for Cryptokami SL code use this command (from the `cryptokami-sl` root directory):
+To run tests for CryptoKami Core code use this command (from the `cryptokami-sl` root directory):
 
 ```
 $ stack test

@@ -25,6 +25,6 @@ instance Buildable NoContent where
 -- | Build Swagger-specification from 'walletApi'.
 swaggerSpecForWalletApi :: Swagger
 swaggerSpecForWalletApi = toSwagger walletApi
-    & info . title       .~ "Cryptokami SL Wallet Web API"
+    & info . title       .~ "CryptoKami Core Wallet Web API"
     & info . version     .~ toText (showVersion CSL.version)
-    & info . description ?~ "This is an API for Cryptokami SL wallet."
+    & info . description ?~ "This is an API for CryptoKami Core wallet."

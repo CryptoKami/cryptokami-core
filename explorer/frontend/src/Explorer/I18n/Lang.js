@@ -1,5 +1,5 @@
 
-// -- Based on https://github.com/input-output-hk/vending-application/blob/master/web-client/src/Data/I18N.js
+// -- Based on https://github.com/CryptoKami/vending-application/blob/master/web-client/src/Data/I18N.js
 
 exports.detectLocaleImpl = function() {
   return window.navigator.languages ?

@@ -71,8 +71,8 @@ getWalletNodeOptions :: HasCompileInfo => IO WalletStartupOptions
 getWalletNodeOptions = execParser programInfo
   where
     programInfo = info (helper <*> versionOption <*> walletStartupOptionsParser) $
-        fullDesc <> progDesc "Cryptokami SL edge node w/ wallet."
-                 <> header "Cryptokami SL edge node."
+        fullDesc <> progDesc "CryptoKami Core edge node w/ wallet."
+                 <> header "CryptoKami Core edge node."
                  <> footerDoc CLI.usageExample
 
     versionOption = infoOption
@@ -161,7 +161,7 @@ dbOptionsParser = WalletDBOptions <$> dbPathParser
     dbPathParser :: Parser FilePath
     dbPathParser = strOption (long  "wallet-db-path" <>
                               help  "Path to the wallet's database." <>
-                              value "wallet-new-db"
+                              value "wallet-db"
                              )
 
     rebuildDbParser :: Parser Bool

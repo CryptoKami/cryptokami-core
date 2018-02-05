@@ -2,6 +2,7 @@ module Cryptokami.Wallet.API.V1.Handlers.Settings where
 
 import           Universum
 
+import           Cryptokami.Wallet.API.Response (WalletResponse, single)
 import           Cryptokami.Wallet.API.V1.Migration
 import qualified Cryptokami.Wallet.API.V1.Settings as Settings
 import           Cryptokami.Wallet.API.V1.Types as V1
@@ -23,8 +24,10 @@ handlers = getSettings
 -- Returns the @static@ settings for this wallet node,
 -- like the slot duration or the current 'SoftwareVersion'.
 getSettings :: (HasConfigurations, HasCompileInfo, MonadBlockchainInfo m)
-            => m NodeSettings
-getSettings = NodeSettings <$> (V1.mkSlotDuration . fromIntegral <$> blockchainSlotDuration)
-                           <*> pure curSoftwareVersion
-                           <*> pure version
-                           <*> pure (T.replace "\n" mempty $ ctiGitRevision compileInfo)
+            => m (WalletResponse NodeSettings)
+getSettings = do
+    settings <- NodeSettings <$> (V1.mkSlotDuration . fromIntegral <$> blockchainSlotDuration)
+                             <*> pure curSoftwareVersion
+                             <*> pure version
+                             <*> pure (T.replace "\n" mempty $ ctiGitRevision compileInfo)
+    return $ single settings

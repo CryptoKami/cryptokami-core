@@ -14,11 +14,22 @@ cabal-version:       >=1.10
 
 library
   hs-source-dirs:      src
-  exposed-modules:     Cryptokami.Wallet.Orphans
+  exposed-modules:     Cryptokami.Wallet.TypeLits
+                       Cryptokami.Wallet.Orphans
                        Cryptokami.Wallet.Orphans.Aeson
                        Cryptokami.Wallet.Orphans.Arbitrary
                        Cryptokami.Wallet.Orphans.Bi
                        Cryptokami.Wallet.API
+                       Cryptokami.Wallet.API.Indices
+                       Cryptokami.Wallet.API.Request
+                       Cryptokami.Wallet.API.Request.Pagination
+                       Cryptokami.Wallet.API.Request.Filter
+                       Cryptokami.Wallet.API.Request.Sort
+                       Cryptokami.Wallet.API.Response
+                       Cryptokami.Wallet.API.Response.Filter.IxSet
+                       Cryptokami.Wallet.API.Response.Filter.Legacy
+                       Cryptokami.Wallet.API.Response.Sort.IxSet
+                       Cryptokami.Wallet.API.Response.JSend
                        Cryptokami.Wallet.API.Types
                        Cryptokami.Wallet.API.Types.UnitOfMeasure
                        Cryptokami.Wallet.API.V1
@@ -34,6 +45,8 @@ library
                        Cryptokami.Wallet.API.V1.Errors
                        Cryptokami.Wallet.API.V1.Updates
                        Cryptokami.Wallet.API.V1.Migration
+                       Cryptokami.Wallet.API.V1.Migration.Monads
+                       Cryptokami.Wallet.API.V1.Migration.Types
                        Cryptokami.Wallet.API.V0
                        Cryptokami.Wallet.API.V0.Types
                        Cryptokami.Wallet.Util
@@ -42,6 +55,7 @@ library
   build-depends:       base
                      , QuickCheck
                      , aeson
+                     , aeson-pretty
                      , bytestring
                      , containers
                      , data-default
@@ -52,6 +66,7 @@ library
                      , http-client
                      , http-types
                      , json-sop
+                     , ixset-typed
                      , lens
                      , memory
                      , mtl
@@ -60,7 +75,10 @@ library
                      , servant
                      , servant-client
                      , servant-server
+                     , servant-quickcheck
+                     , string-conv
                      , template-haskell
+                     , time
                      , text
                      , text-format
                      , transformers
@@ -68,6 +86,7 @@ library
                      , unordered-containers
                      , vector
                      , serokell-util
+                     , wai
                      , warp
                      , cryptokami-sl-core
                      , cryptokami-sl-crypto
@@ -76,6 +95,7 @@ library
                      , cryptokami-sl-networking
                      -- Avoidable deps(?)
                      , cryptokami-sl
+                     , cryptokami-sl-client
                      , cryptokami-sl-infra
                      , cryptokami-sl-ssc
                      , cryptokami-sl-update
@@ -96,8 +116,9 @@ library
                       RecordWildCards
                       ScopedTypeVariables
                       UndecidableInstances
+                      MonadFailDesugaring
 
-executable wallet-new-server
+executable cryptokami-node-new
   hs-source-dirs:      server
   main-is:             Main.hs
   ghc-options:         -threaded -rtsopts
@@ -114,6 +135,7 @@ executable wallet-new-server
                        Cryptokami.Wallet.API.V1.Handlers.Wallets
                        Cryptokami.Wallet.API.V1.Handlers.Updates
                        Cryptokami.Wallet.API.V1.Swagger
+                       Cryptokami.Wallet.API.V1.Swagger.Example
                        Cryptokami.Wallet.Server
                        Cryptokami.Wallet.Server.CLI
                        Cryptokami.Wallet.Server.Plugins
@@ -123,8 +145,10 @@ executable wallet-new-server
                      , aeson-pretty
                      , bytestring
                      , cryptokami-sl
+                     , cryptokami-sl-client
                      , cryptokami-sl-core
                      , cryptokami-sl-crypto
+                     , cryptokami-sl-client
                      , cryptokami-sl-util
                      , cryptokami-sl-update
                      , cryptokami-sl-infra
@@ -141,6 +165,7 @@ executable wallet-new-server
                      , http-api-data
                      , http-types
                      , insert-ordered-containers
+                     , ixset-typed
                      , lens
                      , log-warper
                      , mtl
@@ -180,12 +205,77 @@ executable wallet-new-server
                       RecordWildCards
                       ScopedTypeVariables
                       UndecidableInstances
+                      MonadFailDesugaring
+
+test-suite wallet-unit-tests
+  ghc-options:        -Wall
+  type:               exitcode-stdio-1.0
+  main-is:            WalletUnitTest.hs
+  other-modules:      UTxO.Bootstrap
+                      UTxO.Context
+                      UTxO.Crypto
+                      UTxO.DSL
+                      UTxO.Interpreter
+                      UTxO.PreChain
+                      UTxO.Translate
+                      UTxO.Verify
+                      Wallet.Spec
+  default-language:   Haskell2010
+  default-extensions: BangPatterns
+                      ConstraintKinds
+                      DeriveGeneric
+                      FlexibleContexts
+                      FlexibleInstances
+                      GADTs
+                      InstanceSigs
+                      LambdaCase
+                      MultiParamTypeClasses
+                      MultiWayIf
+                      NoImplicitPrelude
+                      OverloadedStrings
+                      RankNTypes
+                      RecordWildCards
+                      ScopedTypeVariables
+                      StandaloneDeriving
+                      TypeFamilies
+  other-extensions:   DeriveAnyClass
+                      GeneralizedNewtypeDeriving
+                      UndecidableInstances
+  hs-source-dirs:     server test/unit
+
+  build-depends:      base
+                    , cryptokami-sl
+                    , cryptokami-sl-binary
+                    , cryptokami-sl-block
+                    , cryptokami-sl-client
+                    , cryptokami-sl-core
+                    , cryptokami-sl-crypto
+                    , cryptokami-sl-db
+                    , cryptokami-sl-delegation
+                    , cryptokami-sl-ssc
+                    , cryptokami-sl-txp
+                    , cryptokami-sl-update
+                    , cryptokami-sl-util
+                    , constraints
+                    , containers
+                    , data-default
+                    , ether
+                    , formatting
+                    , hspec
+                    , lens
+                    , log-warper
+                    , mtl
+                    , QuickCheck
+                    , serokell-util
+                    , text
+                    , text-format
+                    , universum
+                    , unordered-containers
 
 test-suite wallet-new-specs
   ghc-options:      -Wall
   type:             exitcode-stdio-1.0
   main-is:          Spec.hs
-  default-language: Haskell2010
   hs-source-dirs:   server test
 
   other-modules:    SwaggerSpec
@@ -202,6 +292,7 @@ test-suite wallet-new-specs
                     Cryptokami.Wallet.API.V1.Handlers.Wallets
                     Cryptokami.Wallet.API.V1.Handlers.Updates
                     Cryptokami.Wallet.API.V1.Swagger
+                    Cryptokami.Wallet.API.V1.Swagger.Example
 
   default-language: Haskell2010
   default-extensions: TypeOperators
@@ -220,46 +311,48 @@ test-suite wallet-new-specs
                       RecordWildCards
                       ScopedTypeVariables
                       UndecidableInstances
+                      MonadFailDesugaring
 
   build-depends:      base
-
-  if !os(windows)
-      build-depends:    QuickCheck
-                      , aeson
-                      , aeson-pretty
-                      , bytestring
-                      , cryptokami-sl
-                      , cryptokami-sl-core
-                      , cryptokami-sl-crypto
-                      , cryptokami-sl-util
-                      , cryptokami-sl-update
-                      , cryptokami-sl-infra
-                      , cryptokami-sl-networking
-                      , cryptokami-sl-ssc
-                      , cryptokami-sl-txp
-                      , cryptokami-sl-wallet
-                      , cryptokami-sl-wallet-new
-                      , containers
-                      , data-default
-                      , exceptions
-                      , formatting
-                      , hspec
-                      , http-client
-                      , http-types
-                      , insert-ordered-containers
-                      , lens
-                      , neat-interpolation
-                      , quickcheck-instances
-                      , memory
-                      , safe-exceptions
-                      , serokell-util
-                      , servant
-                      , servant-quickcheck
-                      , servant-server
-                      , servant-swagger
-                      , string-conv
-                      , stm
-                      , swagger2
-                      , text
-                      , universum
-                      , unordered-containers
+                    , QuickCheck
+                    , aeson
+                    , aeson-pretty
+                    , bytestring
+                    , cryptokami-sl
+                    , cryptokami-sl-client
+                    , cryptokami-sl-core
+                    , cryptokami-sl-crypto
+                    , cryptokami-sl-client
+                    , cryptokami-sl-util
+                    , cryptokami-sl-update
+                    , cryptokami-sl-infra
+                    , cryptokami-sl-networking
+                    , cryptokami-sl-ssc
+                    , cryptokami-sl-txp
+                    , cryptokami-sl-wallet
+                    , cryptokami-sl-wallet-new
+                    , containers
+                    , data-default
+                    , exceptions
+                    , formatting
+                    , hspec
+                    , http-client
+                    , http-types
+                    , insert-ordered-containers
+                    , ixset-typed
+                    , lens
+                    , neat-interpolation
+                    , quickcheck-instances
+                    , memory
+                    , safe-exceptions
+                    , serokell-util
+                    , servant
+                    , servant-quickcheck
+                    , servant-server
+                    , servant-swagger
+                    , string-conv
+                    , stm
+                    , swagger2
+                    , text
+                    , universum
+                    , unordered-containers

@@ -125,7 +125,7 @@ data Listener packingType peerData m where
 type ListenerAction packingType peerData snd rcv m =
        -- TODO do not take the peer data here, it's already in scope because
        -- the listeners are given as a function of the remote peer's
-       -- peer data. This remains just because cryptokami-sl will need a big change
+       -- peer data. This remains just because cryptokami-core will need a big change
        -- to use it properly.
        peerData
     -> LL.NodeId

@@ -54,7 +54,7 @@ packages:
     commit: 7120bb4d28e708acd52dfd61d3dca7914fac7d7f # master
   extra-dep: true
 - location:
-    git: https://github.com/input-output-hk/plutus-prototype
+    git: https://github.com/CryptoKami/plutus-prototype
     commit: d4aa461fc69fc6957aab46b41a670c2144aefb77
   extra-dep: true
 - location:
@@ -63,7 +63,7 @@ packages:
     commit: da4247b5b3420120e20451e6a252e2a2ca15b43c
   extra-dep: true
 - location:
-    git: https://github.com/input-output-hk/cryptokami-report-server.git
+    git: https://github.com/CryptoKami/cryptokami-report-server.git
     commit: 7b28613c9c3535193991712ff5a4a36a9f165570 # master v0.4.0
   extra-dep: true
 # These three are needed for cryptokami-sl-networking
@@ -80,7 +80,7 @@ packages:
       commit: 5d8ff2b07b9df35cf61329a3d975e2c8cf95c12a
   extra-dep: true
 - location:
-    git: https://github.com/input-output-hk/cryptokami-crypto
+    git: https://github.com/CryptoKami/cryptokami-crypto
     commit: 1cde8e3a8d9093bbf571085920045c05edb3eaa4
   extra-dep: true
 # We're using forked version of 'swagger2' package because of bug in haddock package.
@@ -112,6 +112,11 @@ packages:
     commit: 2d261bb971bada1893753b503452d9e6e217bc4a
   extra-dep: true
 
+- location:
+    git: https://github.com/CryptoKami/rocksdb-haskell-ng.git
+    commit: 49f501a082d745f3b880677220a29cafaa181452
+  extra-dep: true
+
 nix:
   shell-file: shell.nix
 
@@ -134,10 +139,10 @@ extra-deps:
 - servant-docs-0.11.1             # needed for servant-0.12
 - servant-swagger-1.1.4           # needed for servant-0.12
 - servant-swagger-ui-0.2.4.3.4.0  # needed for servant-0.12
+- servant-blaze-0.7.1             # needed for servant-0.12
 - servant-quickcheck-0.0.4
 - ether-0.5.1.0
 - pipes-interleave-1.1.1
-- rocksdb-haskell-1.0.0
 - generic-arbitrary-0.1.0
 - happy-1.19.5                    # https://github.com/commercialhaskell/stack/issues/3151
 - entropy-0.3.7                   # https://github.com/commercialhaskell/stack/issues/3151

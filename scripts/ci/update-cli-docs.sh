@@ -1,7 +1,7 @@
 #!/bin/bash
 set -euo pipefail
 
-echo "Cryptokami SL CLI docs updating"
+echo "CryptoKami Core CLI docs updating"
 
 readonly CARDANO_DOCS_REPO="${HOME}"/cryptokamidocs
 readonly DOCUMENTER=cryptokami-cli-docs
@@ -20,7 +20,7 @@ echo "**** 2. Cloning cryptokamidocs.com repository ****"
 rm -rf "${CARDANO_DOCS_REPO}"
 # We need `master` only, because Jekyll builds docs from `master` branch.
 git clone --quiet --branch=master \
-    https://"${GITHUB_CARDANO_DOCS_ACCESS_2}"@github.com/input-output-hk/cryptokamidocs.com \
+    https://"${GITHUB_CARDANO_DOCS_ACCESS_2}"@github.com/CryptoKami/cryptokamidocs.com \
     "${CARDANO_DOCS_REPO}"
 
 echo "**** 3. Copy (probably new) version of this chapter ****"

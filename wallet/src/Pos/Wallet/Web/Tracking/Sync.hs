@@ -10,8 +10,8 @@
 -- There are severals cases when we must  synchronise wallet-db and node-db:
 -- • When we relaunch wallet. Desynchronization can be caused by interruption
 --   during blocks application/rollback at the previous launch,
---   then wallet-db can fall behind from node-db (when interruption during rollback)
---   or vice versa (when interruption during application)
+--   then wallet-db can fall behind from node-db (when interrupted during rollback)
+--   or vice versa (when interrupted during application)
 --   @syncWSetsWithGStateLock@ implements this functionality.
 -- • When a user wants to import a secret key. Then we must rely on
 --   Utxo (GStateDB), because blockchain can be large.
@@ -48,7 +48,6 @@ import qualified Data.HashMap.Strict as HM
 import qualified Data.HashSet as HS
 import qualified Data.List.NonEmpty as NE
 import qualified Data.Map as M
-import           Ether.Internal (HasLens (..))
 import           Formatting (build, sformat, (%))
 import           System.Wlog (HasLoggerName, WithLogger, logError, logInfo, logWarning,
                               modifyLoggerName)
@@ -75,7 +74,7 @@ import           Pos.Util.Chrono (getNewestFirst)
 import           Pos.Util.LogSafe (logInfoS, logWarningS)
 import qualified Pos.Util.Modifier as MM
 import           Pos.Util.Servant (encodeCType)
-import           Pos.Util.Util (getKeys)
+import           Pos.Util.Util (HasLens (..), getKeys)
 
 import           Pos.Wallet.WalletMode (WalletMempoolExt)
 import           Pos.Wallet.Web.Account (MonadKeySearch (..))

@@ -27,7 +27,7 @@ rm -rf "${CARDANO_DOCS_REPO}"
 cd "${HOME}"
 # We need `master` only, because Jekyll builds docs from `master` branch.
 git clone --quiet --branch=master \
-    https://"${GITHUB_CARDANO_DOCS_ACCESS_2}"@github.com/input-output-hk/cryptokamidocs.com \
+    https://"${GITHUB_CARDANO_DOCS_ACCESS_2}"@github.com/CryptoKami/cryptokamidocs.com \
     "${CARDANO_DOCS_REPO}"
 cd "${CARDANO_DOCS_REPO}"
 

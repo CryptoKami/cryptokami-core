@@ -11,11 +11,11 @@ https://github.com/serokell/time-warp-nt.git
 https://github.com/thoughtpolice/hs-ed25519.git
 https://github.com/serokell/network-transport.git
 https://github.com/serokell/network-transport-tcp.git
-https://github.com/input-output-hk/cryptokami-crypto.git
-https://github.com/input-output-hk/cryptokami-report-server.git
-https://github.com/input-output-hk/plutus-prototype.git
+https://github.com/CryptoKami/cryptokami-crypto.git
+https://github.com/CryptoKami/cryptokami-report-server.git
+https://github.com/CryptoKami/plutus-prototype.git
 https://github.com/serokell/engine.io.git
-https://github.com/input-output-hk/cryptokami-sl.git
+https://github.com/CryptoKami/cryptokami-sl.git
 "
 
 for item in $items

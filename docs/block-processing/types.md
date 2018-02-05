@@ -48,7 +48,7 @@
     section [SSC-related types](#ssc-related-types) for some links.
 
   * We assume that you know about hashing and public key cryptography used
-    in Cryptokami SL – e.g. `Hash`, `PublicKey`, `Signature`,
+    in CryptoKami Core – e.g. `Hash`, `PublicKey`, `Signature`,
     `RedeemPublicKey`. One additional thing that can be noted here is that a
     `StakeholderId` is a hash (`AddressHash`) of a public key.
 
@@ -472,10 +472,10 @@ A transaction (`Tx`) can be thought of as a command to destroy several
 *unspent outputs* and create new unspent outputs, possibly with different
 owners. In this fashion, money can be transferred from one person to another
 by destroying money belonging to the first person and creating money that
-would belong to the second person. (See [Transactions in Cryptokami SL][] for
+would belong to the second person. (See [Transactions in CryptoKami Core][] for
 more details.)
 
-[Transactions in Cryptokami SL]: https://cryptokamidocs.com/cryptokami/transactions/
+[Transactions in CryptoKami Core]: https://cryptokamidocs.com/cryptokami/transactions/
 
 Here is the definition of a transaction:
 
@@ -785,13 +785,13 @@ how branches' hashes are computed from children's hashes.
 ## SSC-related types
 
 This section assumes that you are familiar with [Ouroboros][]. You may also
-want to read [PVSS Implementation in Cryptokami SL][] to understand how the
+want to read [PVSS Implementation in CryptoKami Core][] to understand how the
 internals of `Commitment`, `Opening`, etc are implemented, and see the
 sources of the [`pvss-haskell`][] library.
 
 [Ouroboros]: https://eprint.iacr.org/2016/889.pdf
-[PVSS Implementation in Cryptokami SL]: https://cryptokamidocs.com/technical/pvss/
-[`pvss-haskell`]: https://github.com/input-output-hk/pvss-haskell
+[PVSS Implementation in CryptoKami Core]: https://cryptokamidocs.com/technical/pvss/
+[`pvss-haskell`]: https://github.com/CryptoKami/pvss-haskell
 
 ### VSS keys
 

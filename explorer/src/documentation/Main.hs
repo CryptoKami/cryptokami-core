@@ -57,7 +57,7 @@ main = do
       where
         programInfo = Opt.info (helper <*> versionOption) $
             fullDesc <> progDesc "Generate Swagger specification for Explorer web API."
-                     <> header   "Cryptokami SL Explorer web API docs generator."
+                     <> header   "CryptoKami Core Explorer web API docs generator."
                      <> footer   ("This program runs during 'cryptokami-sl' building on Travis CI. " <>
                                   "Generated file '" <> generatedJSON <> "' will be used to produce HTML documentation. " <>
                                   "This documentation will be published at cryptokamidocs.com using 'update-explorer-web-api-docs.sh'.")
@@ -108,7 +108,7 @@ instance {-# OVERLAPPING #-} (Typeable a, ToSchema a) => ToSchema (Either Explor
 -- | Build Swagger-specification from 'explorerApi'.
 swaggerSpecForExplorerApi :: Swagger
 swaggerSpecForExplorerApi = toSwagger A.explorerApi
-    & info . title       .~ "Cryptokami SL Explorer Web API"
+    & info . title       .~ "CryptoKami Core Explorer Web API"
     & info . version     .~ toText (showVersion CSLE.version)
-    & info . description ?~ "This is an API for Cryptokami SL Explorer."
+    & info . description ?~ "This is an API for CryptoKami Core Explorer."
     & host               ?~ "cryptokamiexplorer.com"

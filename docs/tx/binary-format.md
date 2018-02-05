@@ -134,7 +134,7 @@ represented as a list, for example:
 ```
 
 where `Address` is an address of recipient, and `Amount` is a value we sent, in [Lovelaces](https://cryptokamidocs.com/glossary/#lovelace).
-`Amount` is an integer, because Lovelace is the smallest unit of money in Cryptokami SL. The
+`Amount` is an integer, because Lovelace is the smallest unit of money in CryptoKami Core. The
 value of `Amount` can be at most `45000000000000000`, it fits into an unsigned 64-bit
 integer.
 
@@ -463,7 +463,7 @@ CBOR bytes representation clarifies it:
 ```
 
 Now we have to encode `FA` into [Base58](https://en.wikipedia.org/wiki/Base58) format.
-Cryptokami SL uses Bitcoin Base58-alphabet. The result is:
+CryptoKami Core uses Bitcoin Base58-alphabet. The result is:
 
 ```
 AL91N9VXRTCypFouG2KjJvJuvKmUC4p3XcpHnYETWRG5HJVpi2ixeN1nG5EWtbJCH71YjzhqHKcsmmPYGRjy8nHDe2i17BEf9hTqDDLmcFVbHxx1GW9
@@ -473,7 +473,7 @@ This is an address in its final form.
 
 ## Use Case 2: Transaction Fee
 
-Transaction fees in Cryptokami SL are described [here](https://cryptokamidocs.com/cryptokami/transaction-fees/).
+Transaction fees in CryptoKami Core are described [here](https://cryptokamidocs.com/cryptokami/transaction-fees/).
 
 Let's consider the transaction from the use case 1:
 

@@ -1,4 +1,4 @@
-# Cryptokami SL Databases
+# CryptoKami Core Databases
 
 ## node-db
 
@@ -46,7 +46,7 @@ misc: 292K
 
 #### block extra
 
-* `e/ls/` -> `LastBlkSlots` (description [here](https://github.com/input-output-hk/cryptokami-sl/blob/ac1ec4740865dffb615ce51081b7920af18576b7/node/src/Pos/Block/Slog/Types.hs#L22))
+* `e/ls/` -> `LastBlkSlots` (description [here](https://github.com/CryptoKami/cryptokami-core/blob/ac1ec4740865dffb615ce51081b7920af18576b7/node/src/Pos/Block/Slog/Types.hs#L22))
 * `"e/mc/" <> headerHash` <- `()`, key is present if block with corresponding id is in main chain
 * `"e/fl/" <> headerHash` <- `HeaderHash`
    * Forward link, used by block retrieval code. Unlike `prevBlock` field of block header, which points to predcessor of given block, this link will return block, which is next after given

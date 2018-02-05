@@ -2,10 +2,10 @@
 
 ## Preparing
 
-Clone [`cryptokami-sl`](https://github.com/input-output-hk/cryptokami-sl/) repository:
+Clone [`cryptokami-sl`](https://github.com/CryptoKami/cryptokami-core/) repository:
 
 ```
-$ git clone git@github.com:input-output-hk/cryptokami-sl.git
+$ git clone git@github.com:CryptoKami/cryptokami-sl.git
 $ cd cryptokami-sl
 ```
 
@@ -43,6 +43,12 @@ Possible response:
 
 ```
 {"Right":{"_spLocalCD":{"getChainDifficulty":19273},"_spNetworkCD":{"getChainDifficulty":19273},"_spPeers":0}}
+```
+
+This is an example with the certificate:
+
+```
+curl --cacert /home/user/projects/cryptokami-core/scripts/tls-files/ca.crt http://localhost:8090/api/settings/sync/progress
 ```
 
 Please see [online documentation for wallet API](https://cryptokamidocs.com/technical/wallet/api/) for complete information.

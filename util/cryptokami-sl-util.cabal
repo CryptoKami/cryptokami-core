@@ -1,8 +1,8 @@
 name:                cryptokami-sl-util
 version:             1.0.3
-synopsis:            Cryptokami SL - general utilities
+synopsis:            CryptoKami Core - general utilities
 description:         This package contains utility functions not specific
-                     to Cryptokami SL which extend 3rd party libraries or implement
+                     to CryptoKami Core which extend 3rd party libraries or implement
                      something from scratch.
 license:             MIT
 license-file:        LICENSE
@@ -17,14 +17,14 @@ library
   exposed-modules:
                        Pos.Util
 
-                       Pos.Util.Arbitrary
+                       Pos.Util.QuickCheck
+                       Pos.Util.QuickCheck.Arbitrary
+                       Pos.Util.QuickCheck.Property
                        Pos.Util.CompileInfo
 
                        Pos.Util.Concurrent
-                       Pos.Util.Concurrent.LockedTVar
                        Pos.Util.Concurrent.PriorityLock
                        Pos.Util.Concurrent.RWLock
-                       Pos.Util.Concurrent.RWVar
 
                        Pos.Util.Filesystem
                        Pos.Util.Future
@@ -47,6 +47,8 @@ library
                      , base
                      , bytestring
                      , cryptokami-sl-networking
+                     , cborg
+                     , cereal
                      , containers
                      , concurrent-extra
                      , cryptonite
@@ -58,9 +60,11 @@ library
                      , filepath
                      , formatting
                      , hashable
+                     , hspec
                      , lens
                      , log-warper >= 1.0.3
                      , lrucache
+                     , megaparsec
                      , mmorph
                      , mtl
                      , parsec
@@ -91,6 +95,9 @@ library
 
   default-extensions:  DeriveDataTypeable
                        DeriveGeneric
+                       DeriveFunctor
+                       DeriveFoldable
+                       DeriveTraversable
                        GeneralizedNewtypeDeriving
                        StandaloneDeriving
                        FlexibleContexts
@@ -111,6 +118,8 @@ library
                        BangPatterns
                        TemplateHaskell
                        ScopedTypeVariables
+                       MonadFailDesugaring
+                       GADTs
 
   ghc-options:         -Wall
                        -fno-warn-orphans
