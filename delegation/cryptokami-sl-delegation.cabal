@@ -1,0 +1,106 @@
+name:                cryptokami-sl-delegation
+version:             1.0.3
+synopsis:            CryptoKami Core - delegation
+description:         CryptoKami Core - delegation
+license:             MIT
+license-file:        LICENSE
+author:              Serokell
+maintainer:          hi@serokell.io
+copyright:           2017 IOHK
+category:            Currency
+build-type:          Simple
+cabal-version:       >=1.10
+
+library
+  exposed-modules:
+                       Pos.Delegation
+                       Pos.Delegation.Cede
+                       Pos.Delegation.Class
+                       Pos.Delegation.Configuration
+                       Pos.Delegation.DB
+                       Pos.Delegation.Helpers
+                       Pos.Delegation.Listeners
+                       Pos.Delegation.Logic
+                       Pos.Delegation.Lrc
+                       Pos.Delegation.Types
+                       Pos.Delegation.Worker
+
+                       -- Arbitrary instances
+                       Pos.Arbitrary.Delegation
+
+                       -- Binary serialization
+                       Pos.Binary.Delegation
+
+  other-modules:
+                       Pos.Delegation.Cede.Class
+                       Pos.Delegation.Cede.Logic
+                       Pos.Delegation.Cede.Types
+                       Pos.Delegation.Cede.Holders
+                       Pos.Delegation.Logic.Common
+                       Pos.Delegation.Logic.Mempool
+                       Pos.Delegation.Logic.VAR
+
+  build-depends:       QuickCheck
+                     , aeson
+                     , base
+                     , cryptokami-sl-binary
+                     , cryptokami-sl-core
+                     , cryptokami-sl-crypto
+                     , cryptokami-sl-db
+                     , cryptokami-sl-infra
+                     , cryptokami-sl-lrc
+                     , cryptokami-sl-networking
+                     , cryptokami-sl-util
+                     , conduit
+                     , ether
+                     , formatting
+                     , generic-arbitrary
+                     , lens
+                     , log-warper
+                     , lrucache
+                     , mmorph
+                     , mtl
+                     , reflection
+                     , resourcet
+                     , safe-exceptions
+                     , rocksdb-haskell-ng
+                     , serokell-util
+                     , text-format
+                     , time
+                     , transformers
+                     , universum
+                     , unordered-containers
+
+  default-extensions:  DeriveDataTypeable
+                       DeriveGeneric
+                       GeneralizedNewtypeDeriving
+                       StandaloneDeriving
+                       FlexibleContexts
+                       FlexibleInstances
+                       MultiParamTypeClasses
+                       FunctionalDependencies
+                       DefaultSignatures
+                       NoImplicitPrelude
+                       OverloadedStrings
+                       RecordWildCards
+                       TypeApplications
+                       TupleSections
+                       ViewPatterns
+                       LambdaCase
+                       MultiWayIf
+                       ConstraintKinds
+                       UndecidableInstances
+                       BangPatterns
+                       TemplateHaskell
+                       ScopedTypeVariables
+                       MonadFailDesugaring
+
+  hs-source-dirs:      src
+  default-language:    Haskell2010
+
+  ghc-options:         -Wall
+                       -fno-warn-orphans
+                       -O2
+
+  build-tools: cpphs >= 1.19
+  ghc-options: -pgmP cpphs -optP --cpp

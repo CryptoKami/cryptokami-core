@@ -1,0 +1,140 @@
+name:                cryptokami-sl-ssc
+version:             1.0.3
+synopsis:            CryptoKami Core - shared seed computation
+description:         CryptoKami Core - shared seed computation
+license:             MIT
+license-file:        LICENSE
+author:              Serokell
+maintainer:          hi@serokell.io
+copyright:           2016 IOHK
+category:            Currency
+build-type:          Simple
+cabal-version:       >=1.10
+
+library
+  exposed-modules:
+    Pos.Ssc
+
+    Pos.Ssc.Base
+
+    Pos.Ssc.Error
+    Pos.Ssc.Error.Seed
+    Pos.Ssc.Error.Verify
+
+    Pos.Ssc.Types
+
+    Pos.Ssc.Logic
+    Pos.Ssc.Logic.Local
+    Pos.Ssc.Logic.Global
+    Pos.Ssc.Logic.VAR
+
+    Pos.Ssc.State
+    Pos.Ssc.State.Local
+    Pos.Ssc.State.Global
+
+    Pos.Ssc.Message
+    Pos.Ssc.Lrc
+    Pos.Ssc.Mem
+    Pos.Ssc.Functions
+    Pos.Ssc.SecretStorage
+    Pos.Ssc.VssCertData
+    Pos.Ssc.Seed
+    Pos.Ssc.Configuration
+    Pos.Ssc.Behavior
+    Pos.Ssc.Shares
+    Pos.Ssc.DB
+    Pos.Ssc.Mode
+
+    Pos.Ssc.Toss
+    Pos.Ssc.Toss.Logic
+    Pos.Ssc.Toss.Pure
+    Pos.Ssc.Toss.Base
+    Pos.Ssc.Toss.Class
+    Pos.Ssc.Toss.Trans
+    Pos.Ssc.Toss.Types
+
+    Pos.Ssc.Worker
+
+    Pos.Arbitrary.Ssc
+
+    Pos.Binary.Ssc
+    Pos.Binary.Ssc.Types
+    Pos.Binary.Ssc.Toss
+    Pos.Binary.Ssc.Relay
+
+    Pos.Security.Params
+    Pos.Security.Util
+
+  build-depends:       QuickCheck
+                     , aeson
+                     , array
+                     , base
+                     , bytestring
+                     , cryptokami-sl-binary
+                     , cryptokami-sl-core
+                     , cryptokami-sl-crypto
+                     , cryptokami-sl-db
+                     , cryptokami-sl-infra
+                     , cryptokami-sl-lrc
+                     , cryptokami-sl-networking
+                     , cryptokami-sl-util
+                     , containers
+                     , cryptonite
+                     , data-default
+                     , ether
+                     , ekg-core
+                     , exceptions
+                     , safe-exceptions
+                     , formatting
+                     , generic-arbitrary
+                     , lens
+                     , log-warper
+                     , memory
+                     , mmorph
+                     , mono-traversable
+                     , mtl
+                     , parsec
+                     , reflection
+                     , rocksdb-haskell-ng
+                     , serokell-util
+                     , stm
+                     , tagged
+                     , text
+                     , text-format
+                     , time-units
+                     , transformers
+                     , universum
+                     , unordered-containers
+
+  default-language:    Haskell2010
+
+  default-extensions:  DeriveDataTypeable
+                       DeriveGeneric
+                       GeneralizedNewtypeDeriving
+                       StandaloneDeriving
+                       FlexibleContexts
+                       FlexibleInstances
+                       MultiParamTypeClasses
+                       FunctionalDependencies
+                       DefaultSignatures
+                       NoImplicitPrelude
+                       OverloadedStrings
+                       RecordWildCards
+                       TypeApplications
+                       TupleSections
+                       ViewPatterns
+                       LambdaCase
+                       MultiWayIf
+                       ConstraintKinds
+                       UndecidableInstances
+                       BangPatterns
+                       TemplateHaskell
+                       ScopedTypeVariables
+                       MonadFailDesugaring
+
+  ghc-options:         -Wall
+                       -fno-warn-orphans
+                       -O2
+
+  build-tools: cpphs >= 1.19
+  ghc-options: -pgmP cpphs -optP --cpp

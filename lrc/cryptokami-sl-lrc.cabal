@@ -1,0 +1,83 @@
+name:                cryptokami-sl-lrc
+version:             1.0.3
+synopsis:            CryptoKami Core - Leaders and Richmen computation
+description:         CryptoKami Core - Leaders and Richmen computation
+license:             MIT
+license-file:        LICENSE
+author:              Serokell
+maintainer:          hi@serokell.io
+copyright:           2016 IOHK
+category:            Currency
+build-type:          Simple
+cabal-version:       >=1.10
+
+library
+  exposed-modules:     Pos.Arbitrary.Lrc
+
+                       Pos.Lrc.Fts
+                       Pos.Lrc.Types
+                       Pos.Lrc.Error
+                       Pos.Lrc.Core
+                       Pos.Lrc.Consumer
+                       Pos.Lrc.RichmenComponent
+                       Pos.Lrc.Context
+                       Pos.Lrc.Mode
+
+                       Pos.Lrc.DB.Common
+                       Pos.Lrc.DB.Issuers
+                       Pos.Lrc.DB.RichmenBase
+                       Pos.Lrc.DB.Seed
+
+  build-depends:       QuickCheck
+                     , base
+                     , bytestring
+                     , cryptokami-sl-binary
+                     , cryptokami-sl-core
+                     , cryptokami-sl-crypto
+                     , cryptokami-sl-db
+                     , cryptokami-sl-networking
+                     , cryptokami-sl-util
+                     , conduit
+                     , ether
+                     , formatting
+                     , generic-arbitrary
+                     , lens
+                     , log-warper
+                     , reflection
+                     , rocksdb-haskell-ng
+                     , text-format
+                     , universum
+                     , unordered-containers
+
+  default-extensions:  DeriveDataTypeable
+                       DeriveGeneric
+                       GeneralizedNewtypeDeriving
+                       StandaloneDeriving
+                       FlexibleContexts
+                       FlexibleInstances
+                       MultiParamTypeClasses
+                       FunctionalDependencies
+                       DefaultSignatures
+                       NoImplicitPrelude
+                       OverloadedStrings
+                       RecordWildCards
+                       TypeApplications
+                       TupleSections
+                       ViewPatterns
+                       LambdaCase
+                       MultiWayIf
+                       ConstraintKinds
+                       UndecidableInstances
+                       BangPatterns
+                       TemplateHaskell
+                       ScopedTypeVariables
+                       MonadFailDesugaring
+
+  default-language:    Haskell2010
+
+  ghc-options:         -Wall
+                       -fno-warn-orphans
+                       -O2
+
+  build-tools: cpphs >= 1.19
+  ghc-options: -pgmP cpphs -optP --cpp

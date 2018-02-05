@@ -1,0 +1,15 @@
+module Cryptokami.Wallet.API.V1.Updates where
+
+import           Cryptokami.Wallet.API.Response (ValidJSON, WalletResponse)
+import           Cryptokami.Wallet.API.V1.Types
+
+import           Servant
+
+-- | Mimicks V0 in preparation for update mechanism rework.
+-- See: https://iohk.myjetbrains.com/youtrack/issue/CS-28
+type API =
+         "updates" :> "next"
+                   :> Summary "Requests information about the next scheduled update."
+                   :> Get '[ValidJSON] (WalletResponse WalletUpdate)
+    :<|> "updates" :> Summary "Applies the update. Returns info about the update being applied."
+                   :> Post '[ValidJSON] (WalletResponse WalletUpdate)

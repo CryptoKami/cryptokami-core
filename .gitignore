@@ -1,0 +1,79 @@
+# Stack
+.stack-work/
+
+# From daedalus-bridge
+node_modules/*
+
+# Config files
+.ghci
+
+# Our custom build script (util-scripts/build.sh)
+b
+.no-nix
+.ram
+.Werror
+
+# Various DBs
+node-db*
+wallet-db/
+wallet-new-db/
+db-*/
+wdb-*/
+
+# Keys
+*.key
+*.key.lock
+keys
+!secrets/*.key
+
+# TLS certificates
+server.crt
+ca.crt
+
+# Node runtime data
+logs
+run
+
+# Emacs
+*~
+*#
+.dir-locals.el
+GTAGS
+GRTAGS
+GPATH
+TAGS
+
+# Vim
+tags
+
+# Intellij Idea & intellij-haskell
+.idea
+.ideaHaskellLib
+*.iml
+
+# Atom
+.haskell-ghc-mod.json
+
+# Misc
+.DS_Store
+*.swp
+
+# Compiled-scripts cruft
+scripts/haskell/dependencies.hs
+scripts/haskell/dependencies.hi
+scripts/haskell/dependencies.o
+scripts/haskell/dependencies
+
+# 'pkgs/stack2nix' is a symlink into the nix store, it can safely be ignored
+pkgs/stack2nix
+nixpkgs # in case generate.sh clones nixpkgs in here
+
+# explorer
+explorer-node.log.*
+explorer-node.log
+explorer.log
+socket-io.log
+
+# importify
+.importify
+

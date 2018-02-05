@@ -1,0 +1,185 @@
+resolver: lts-9.1
+
+flags:
+  ether:
+    disable-tup-instances: true
+
+extra-package-dbs: []
+
+# networking → [util, binary] → crypto → core → db → [lrc, infra] → [ssc, txp, update, delegation] → block → lib → ...
+# Then we have two branches:
+# ... → client → generator → [auxx, explorer, wallet] → wallet-new
+# ... → [node, tools]
+packages:
+- networking
+- binary
+- util
+- crypto
+- core
+- db
+- lrc
+- infra
+- ssc
+- txp
+- update
+- delegation
+- block
+- lib
+- generator
+- client
+- auxx
+- explorer
+- node
+- tools
+- wallet
+- wallet-new # The new (unreleased) version of the wallet
+
+- location:
+    git: https://github.com/well-typed/cborg
+    # Has support for canonical cbor
+    commit: c7db82bfd93923f5b08ed51a4cd53e30bd445924
+  subdirs:
+  - cborg
+  extra-dep: true
+- location:
+    git: https://github.com/serokell/time-units.git
+    commit: 6c3747c1ac794f952de996dd7ba8a2f6d63bf132
+  extra-dep: true
+- location:
+    git: https://github.com/serokell/acid-state.git
+    commit: 95fce1dbada62020a0b2d6aa2dd7e88eadd7214b
+  extra-dep: true
+- location:
+    git: https://github.com/serokell/kademlia.git
+    commit: 7120bb4d28e708acd52dfd61d3dca7914fac7d7f # master
+  extra-dep: true
+- location:
+    git: https://github.com/CryptoKami/plutus-prototype
+    commit: d4aa461fc69fc6957aab46b41a670c2144aefb77
+  extra-dep: true
+- location:
+    git: https://github.com/thoughtpolice/hs-ed25519
+    # We're waiting on next release
+    commit: da4247b5b3420120e20451e6a252e2a2ca15b43c
+  extra-dep: true
+- location:
+    git: https://github.com/CryptoKami/cryptokami-report-server.git
+    commit: 7b28613c9c3535193991712ff5a4a36a9f165570 # master v0.4.0
+  extra-dep: true
+# These three are needed for cryptokami-sl-networking
+- location:
+    git: https://github.com/serokell/network-transport-tcp
+    commit: 3d56652123bd296dc759cd31947eb2a17924e68a # csl-0.6.0
+  extra-dep: true
+- location:
+    git: https://github.com/serokell/network-transport
+    commit: 018a50b9042c2115c3ec9c9fd5ca5f28737dd29c
+  extra-dep: true
+- location:
+      git: https://github.com/avieth/network-transport-inmemory
+      commit: 5d8ff2b07b9df35cf61329a3d975e2c8cf95c12a
+  extra-dep: true
+- location:
+    git: https://github.com/CryptoKami/cryptokami-crypto
+    commit: 1cde8e3a8d9093bbf571085920045c05edb3eaa4
+  extra-dep: true
+# We're using forked version of 'swagger2' package because of bug in haddock package.
+# Now we don't build Haddock-docs for this 'swagger2' package, and when that bug will
+# be fixed, we'll back to Hackage-version.
+- location:
+    git: https://github.com/serokell/swagger2
+    commit: 6693ff91be2f0b015c2ab043292587c1cc9449cf
+  extra-dep: true
+
+# Required for explorer
+- location:
+    git: https://github.com/serokell/engine.io.git
+    commit: a594e402fd450f11ad60d09ddbd93db500000632
+  extra-dep: true
+  subdirs:
+    - socket-io
+    - engine-io
+    - engine-io-wai
+
+# Version of "dns" with proper Windows & Unix multiple-nameservers support
+- location:
+    git: https://github.com/kazu-yamamoto/dns.git
+    commit: b106470f0a93672af22cbc7ed6564b53c0f249ed
+  extra-dep: true
+
+- location:
+    git: https://github.com/well-typed/canonical-json.git
+    commit: 2d261bb971bada1893753b503452d9e6e217bc4a
+  extra-dep: true
+
+- location:
+    git: https://github.com/CryptoKami/rocksdb-haskell-ng.git
+    commit: 49f501a082d745f3b880677220a29cafaa181452
+  extra-dep: true
+
+nix:
+  shell-file: shell.nix
+
+extra-deps:
+- ekg-core-0.1.1.3                # https://github.com/tibbe/ekg-core/pull/21
+- transformers-0.5.5.0            # https://hub.darcs.net/ross/transformers/issue/33#comment-20171004T152940
+- universum-0.9.0
+- serokell-util-0.5.2
+- pvss-0.2.0
+- base58-bytestring-0.1.0
+- log-warper-1.8.0
+- concurrent-extra-0.7.0.10       # not yet on Stackage
+# - purescript-bridge-0.8.0.1
+- directory-1.3.1.0               # https://github.com/malcolmwallace/cpphs/issues/8
+- servant-0.12
+- servant-server-0.12
+- servant-client-0.12
+- servant-client-core-0.12
+- servant-multipart-0.11
+- servant-docs-0.11.1             # needed for servant-0.12
+- servant-swagger-1.1.4           # needed for servant-0.12
+- servant-swagger-ui-0.2.4.3.4.0  # needed for servant-0.12
+- servant-blaze-0.7.1             # needed for servant-0.12
+- servant-quickcheck-0.0.4
+- ether-0.5.1.0
+- pipes-interleave-1.1.1
+- generic-arbitrary-0.1.0
+- happy-1.19.5                    # https://github.com/commercialhaskell/stack/issues/3151
+- entropy-0.3.7                   # https://github.com/commercialhaskell/stack/issues/3151
+- fmt-0.5.0.0
+- systemd-1.1.2
+- tabl-1.0.3
+# ekg-statsd version without the unnecessary diffing optimisation
+- ekg-statsd-0.2.2.0
+# https://github.com/fpco/lts-haskell/issues/70
+- fgl-5.5.3.1
+- megaparsec-6.2.0
+- parser-combinators-0.2.0
+- loc-0.1.3.1
+- lens-sop-0.2.0.2
+- json-sop-0.2.0.3
+- servant-generic-0.1.0.1
+
+# This is for CI to pass --fast to all dependencies
+apply-ghc-options: everything
+
+# If you find it too restrictive, you can use `scripts/build/cryptokami-sl.sh' script
+ghc-options:
+  cryptokami-sl-util:       -Werror
+  cryptokami-sl-core:       -Werror
+  cryptokami-sl-db:         -Werror
+  cryptokami-sl-ssc:        -Werror
+  cryptokami-sl-infra:      -Werror
+  cryptokami-sl-lrc:        -Werror
+  cryptokami-sl-update:     -Werror
+  cryptokami-sl-txp:        -Werror
+  cryptokami-sl-delegation: -Werror
+  cryptokami-sl-block:      -Werror
+  cryptokami-sl:            -Werror
+  cryptokami-sl-client:     -Werror
+  cryptokami-sl-generator:  -Werror
+  cryptokami-sl-tools:      -Werror
+  cryptokami-sl-auxx:       -Werror
+  cryptokami-sl-wallet:     -Werror
+  cryptokami-sl-explorer:   -Werror
+  cryptokami-sl-node:       -Werror
