@@ -7687,14 +7687,14 @@ inherit (pkgs) mesa;};
            libraryHaskellDepends = [
              aeson aeson-pretty base bytestring cryptokami-core cryptokami-sl-client
              cryptokami-sl-core cryptokami-sl-crypto cryptokami-sl-infra
-             cryptokami-sl-networking cryptokami-sl-ssc cryptokami-sl-update
-             cryptokami-sl-util cryptokami-sl-wallet containers data-default
-             exceptions formatting generics-sop http-api-data http-client
-             http-types ixset-typed json-sop lens memory mtl network-uri
-             QuickCheck safe-exceptions serokell-util servant servant-client
-             servant-quickcheck servant-server string-conv template-haskell text
-             text-format time transformers universum unordered-containers vector
-             wai warp
+             cryptokami-sl-networking cryptokami-sl-ssc cryptokami-sl-txp
+             cryptokami-sl-update cryptokami-sl-util cryptokami-sl-wallet containers
+             data-default exceptions formatting generics-sop http-api-data
+             http-client http-types ixset-typed json-sop lens memory mtl
+             network-uri QuickCheck safe-exceptions serokell-util servant
+             servant-client servant-quickcheck servant-server string-conv
+             template-haskell text text-format time transformers universum
+             unordered-containers vector wai warp
            ];
            executableHaskellDepends = [
              aeson aeson-pretty base bytestring cryptokami-core cryptokami-sl-client
@@ -7722,7 +7722,7 @@ inherit (pkgs) mesa;};
              swagger2 text text-format universum unordered-containers
            ];
            doHaddock = false;
-           homepage = "https://github.com/swagger-api/swagger-codegen#readme";
+           homepage = "https://github.com/CryptoKami/cryptokami-core#readme";
            description = "The Wallet Backend for a Cryptokami node";
            license = stdenv.lib.licenses.mit;
          }) {};

@@ -2,7 +2,7 @@ name:                cryptokami-sl-wallet-new
 version:             0.1.0.0
 synopsis:            The Wallet Backend for a Cryptokami node.
 description:         Please see README.md
-homepage:            https://github.com/swagger-api/swagger-codegen#readme
+homepage:            https://github.com/CryptoKami/cryptokami-core/#readme
 author:              IOHK Engineering Team
 maintainer:          operations@iohk.io
 copyright:           2017 - Input Output Hong Kong
@@ -93,6 +93,7 @@ library
                      , cryptokami-sl-util
                      , cryptokami-sl-wallet
                      , cryptokami-sl-networking
+                     , cryptokami-sl-txp
                      -- Avoidable deps(?)
                      , cryptokami-sl
                      , cryptokami-sl-client
