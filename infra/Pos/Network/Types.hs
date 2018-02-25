@@ -287,7 +287,7 @@ topologyEnqueuePolicy = go
     go TopologyBehindNAT{..} = Policy.defaultEnqueuePolicyEdgeBehindNat
     go TopologyP2P{}         = Policy.defaultEnqueuePolicyEdgeP2P
     go TopologyTraditional{} = Policy.defaultEnqueuePolicyCore
-    go TopologyAuxx{}        = Policy.defaultEnqueuePolicyEdgeBehindNat
+    go TopologyAuxx{}        = Policy.defaultEnqueuePolicyAuxx
 
 -- | Dequeue policy for the given topology
 topologyDequeuePolicy :: Topology kademia -> OQ.DequeuePolicy
@@ -298,11 +298,14 @@ topologyDequeuePolicy = go
     go TopologyBehindNAT{..} = Policy.defaultDequeuePolicyEdgeBehindNat
     go TopologyP2P{}         = Policy.defaultDequeuePolicyEdgeP2P
     go TopologyTraditional{} = Policy.defaultDequeuePolicyCore
-    go TopologyAuxx{}        = Policy.defaultDequeuePolicyEdgeBehindNat
+    go TopologyAuxx{}        = Policy.defaultDequeuePolicyAuxx
 
 -- | Failure policy for the given topology
 topologyFailurePolicy :: Topology kademia -> OQ.FailurePolicy NodeId
-topologyFailurePolicy = Policy.defaultFailurePolicy . topologyNodeType
+topologyFailurePolicy = go
+  where
+    go TopologyAuxx{} = Policy.defaultFailurePolicyAuxx
+    go topo           = Policy.defaultFailurePolicy . topologyNodeType $ topo
 
 -- | Maximum bucket size
 topologyMaxBucketSize :: Topology kademia -> Bucket -> OQ.MaxBucketSize
@@ -420,7 +423,7 @@ choosePeers valency fallbacks peerType =
       peersFromList mempty
     . fmap ((,) peerType)
     . transpose
-    . take (1 + fallbacks)
+    . take (1 fallbacks)
     . mkGroupsOf valency
   where
     mkGroupsOf :: Int -> [a] -> [[a]]
