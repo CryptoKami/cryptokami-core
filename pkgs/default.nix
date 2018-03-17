@@ -2299,8 +2299,6 @@ inherit (pkgs.xorg) libXrender;};
            sha256 = "5d9a141d58bcefbf699ed233a22309ded671c25ed64bcee11a663d00731280fb";
            revision = "3";
            editedCabalFile = "0jm8kkqa5k9nppis3jdx11nmds6w0x62rmnv5bn5q3b75llhnlc1";
-           revision = "2";
-           editedCabalFile = "1ml42hbvfhqzpdi1y5q6dqp4wq6zqb30f15r34n9ip9iv44qjwwf";
            libraryHaskellDepends = [
              base lens linear semigroupoids semigroups vector
            ];
